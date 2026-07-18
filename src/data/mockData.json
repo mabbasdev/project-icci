@@ -1,0 +1,43 @@
+{
+  "sliderItems": [
+    {
+      "id": "slide-1",
+      "title": "Driving License Facilitation Counter Launched at ICCI",
+      "description": "In collaboration with Islamabad Traffic Police, a new facilitation counter is now operational at the ICCI premises for members and their families.",
+      "image": "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80",
+      "tag": "Member Services",
+      "date": "July 15, 2026"
+    },
+    {
+      "id": "slide-2",
+      "title": "Business Delegation to Canton Fair Autumn 2026",
+      "description": "ICCI is organizing an official business delegation to the Canton Fair, China. Registration expressions of interest are now open for executive members.",
+      "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+      "tag": "International Trade",
+      "date": "July 12, 2026"
+    }
+  ],
+  "newsPosts": [
+    {
+      "id": "post-1",
+      "title": "ICCI Welcomes Annual Pink Ribbon Session to Promote Health Awareness",
+      "summary": "The Islamabad Chamber of Commerce & Industry organized an extensive awareness session focusing on corporate social responsibility and community healthcare frameworks.",
+      "category": "Activities",
+      "date": "July 18, 2026"
+    },
+    {
+      "id": "post-2",
+      "title": "Visa Recommendation Letters: Updated Processing Fees & Criteria",
+      "summary": "Important notification for all registered corporate and associate classes regarding the streamlined documentation requirements for international trade visas.",
+      "category": "Notifications",
+      "date": "July 16, 2026"
+    },
+    {
+      "id": "post-3",
+      "title": "Change Management Session: Reforming the Regional Economy",
+      "summary": "Highlighting strategic roadmaps tailored to local startup incubation and policy reforms during the executive body meeting.",
+      "category": "Events",
+      "date": "July 10, 2026"
+    }
+  ]
+}
