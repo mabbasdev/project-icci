@@ -5,7 +5,11 @@ import {
     Phone,
     Landmark,
     ArrowRight,
-    ChevronDown
+    ChevronDown,
+    HelpCircle,
+    Briefcase,
+    MessageSquare,
+    Info
 } from "lucide-react";
 import {
     NavigationMenu,
@@ -79,21 +83,22 @@ export default function Navbar() {
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
-            {/* 1. TOP UTILITY BAR */}
+            {/* 1. TOP UTILITY BAR (DESKTOP) */}
             <div className="hidden border-b border-slate-100 bg-slate-950 text-slate-300 md:block">
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-3 text-xs font-medium tracking-wide text-14">
+                <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-3 text-xs font-medium tracking-wide">
                     <div className="flex items-center gap-6">
-                        <a href="mailto:info@icci.com.pk" className="flex items-center gap-2 transition-colors hover:text-emerald-400 duration-200">
-                            <Mail className="h-3.5 w-3.5 text-emerald-500" /> info@icci.com.pk
+                        <a href="mailto:info@icci.com.pk" className="flex items-center gap-2 transition-colors hover:underline hover:text-emerald-400 duration-200">
+                            <Mail className="h-3.5 w-3.5 text-emerald-500" /> Send Mail: info@icci.com.pk
                         </a>
-                        <a href="tel:+92512261175" className="flex items-center gap-2 transition-colors hover:text-emerald-400 duration-200">
-                            <Phone className="h-3.5 w-3.5 text-emerald-500" /> +92-51-2261175
+                        <a href="tel:+92512261175" className="flex items-center gap-2 transition-colors hover:underline hover:text-emerald-400 duration-200">
+                            <Phone className="h-3.5 w-3.5 text-emerald-500" /> Call Now: +92-51-2261175
                         </a>
                     </div>
                     <div className="flex items-center gap-5">
-                        <a href="https://icci.com.pk/feedback-and-suggestions/contact-us/" className="transition-colors hover:text-emerald-400 duration-200">Contact</a>
-                        <a href="https://icci.com.pk/job" className="transition-colors hover:text-emerald-400 duration-200">Careers</a>
-                        <a href="https://icci.com.pk/feedback-and-suggestions/contact-us/" className="transition-colors hover:text-emerald-400 duration-200">Feedback</a>
+                        <a href="https://icci.com.pk/" className="transition-colors hover:text-emerald-400 hover:underline duration-200">FAQs</a>
+                        <a href="https://icci.com.pk/" className="transition-colors hover:text-emerald-400 hover:underline duration-200">Contact</a>
+                        <a href="https://icci.com.pk/" className="transition-colors hover:text-emerald-400 hover:underline duration-200">Careers</a>
+                        <a href="https://icci.com.pk/" className="transition-colors hover:text-emerald-400 hover:underline duration-200">Feedback</a>
                     </div>
                 </div>
             </div>
@@ -147,10 +152,7 @@ export default function Navbar() {
 
                 {/* Right Call To Actions */}
                 <div className="hidden items-center gap-4 lg:flex">
-                    <Button variant="ghost" className="text-slate-700 hover:text-emerald-600 font-bold px-4 hover:bg-slate-50 rounded-xl transition-all duration-200 text-[14px]">
-                        FAQs
-                    </Button>
-                    <Button className="bg-emerald-600 text-white hover:bg-emerald-700 font-bold shadow-sm shadow-emerald-600/10 hover:shadow-md hover:shadow-emerald-600/20 px-5.5 py-5 rounded-xl transition-all duration-200 group/btn text-[14px]">
+                    <Button className="bg-emerald-600 text-white hover:bg-emerald-700 font-bold shadow-sm shadow-emerald-600/10 hover:shadow-md hover:shadow-emerald-600/20 px-5.5 py-5 rounded-md transition-all duration-200 group/btn text-[14px]">
                         Get Services
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
                     </Button>
@@ -159,25 +161,72 @@ export default function Navbar() {
                 {/* Mobile Menu Trigger Drawer */}
                 <div className="lg:hidden">
                     <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-                        <SheetTrigger asChild>
+                        <SheetTrigger>
                             <Button variant="ghost" size="icon" className="text-slate-700 hover:bg-slate-50 rounded-xl h-10 w-10 border border-transparent hover:border-slate-100">
                                 <Menu className="h-5.5 w-5.5" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-full max-w-xs p-0 bg-white border-l border-slate-100">
-                            <div className="flex items-center justify-between border-b border-slate-100 px-6 py-5">
-                                <span className="font-extrabold text-[15px] tracking-tight text-slate-900 uppercase">Navigation Portal</span>
+                        <SheetContent side="right" className="w-full max-w-sm p-0 bg-white border-l border-slate-100 flex flex-col h-full">
+                            {/* Mobile Header with Official Brand Logo Block */}
+                            <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4 shrink-0">
+                                <div className="flex items-center gap-3 select-none">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-emerald-400">
+                                        <Landmark className="h-5 w-5" />
+                                    </div>
+                                    <div className="leading-tight">
+                                        <span className="block text-[11px] font-extrabold tracking-tight text-slate-900 uppercase">Islamabad Chamber of</span>
+                                        <span className="block text-[9px] font-bold tracking-widest text-slate-400 uppercase mt-0.5">Commerce & Industry</span>
+                                    </div>
+                                </div>
                             </div>
-                            <nav className="flex flex-col p-4 space-y-1 max-h-[calc(100vh-180px)] overflow-y-auto">
-                                {NAV_LINKS.map((group) => (
-                                    <MobileNavGroup key={group.label} group={group} closeMenu={() => setMobileOpen(false)} />
-                                ))}
-                            </nav>
-                            <div className="absolute bottom-0 left-0 right-0 p-5 border-t border-slate-100 bg-slate-50/80 backdrop-blur-sm flex flex-col gap-2.5">
-                                {/* <Button variant="outline" className="w-full border-slate-200 text-slate-700 font-bold rounded-xl py-5 text-[14px] hover:bg-white hover:text-emerald-600 transition-all">
-                                    FAQs
-                                </Button> */}
-                                <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-bold rounded-xl py-5 text-[14px] transition-all">
+
+                            {/* Mobile Scrollable Links Area */}
+                            <div className="flex-1 overflow-y-auto p-4 space-y-5 content-start">
+                                {/* Navigation Links Section */}
+                                <nav className="space-y-1">
+                                    <p className="px-4 text-[11px] font-bold tracking-wider text-slate-400 uppercase mb-2">Main Menu</p>
+                                    {NAV_LINKS.map((group) => (
+                                        <MobileNavGroup key={group.label} group={group} closeMenu={() => setMobileOpen(false)} />
+                                    ))}
+                                </nav>
+
+                                <hr className="border-slate-100 mx-2" />
+
+                                {/* Managed Utility Menu Links for Mobile */}
+                                <div className="space-y-3">
+                                    <p className="px-4 text-[11px] font-bold tracking-wider text-slate-400 uppercase">Chamber Services</p>
+                                    <div className="grid grid-cols-2 gap-2 px-2">
+                                        <a href="https://icci.com.pk/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 rounded-xl border border-slate-100 p-3 text-[13px] font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-all">
+                                            <HelpCircle className="h-4 w-4 text-slate-400 shrink-0" /> FAQs
+                                        </a>
+                                        <a href="https://icci.com.pk/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 rounded-xl border border-slate-100 p-3 text-[13px] font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-all">
+                                            <Info className="h-4 w-4 text-slate-400 shrink-0" /> Contact
+                                        </a>
+                                        <a href="https://icci.com.pk/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 rounded-xl border border-slate-100 p-3 text-[13px] font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-all">
+                                            <Briefcase className="h-4 w-4 text-slate-400 shrink-0" /> Careers
+                                        </a>
+                                        <a href="https://icci.com.pk/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 rounded-xl border border-slate-100 p-3 text-[13px] font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-all">
+                                            <MessageSquare className="h-4 w-4 text-slate-400 shrink-0" /> Feedback
+                                        </a>
+                                    </div>
+
+                                    {/* Direct Contact Media Nodes */}
+                                    <div className="bg-slate-50 rounded-2xl p-4 mx-2 space-y-2.5 border border-slate-100">
+                                        <a href="mailto:info@icci.com.pk" className="flex items-center gap-3 text-[13px] font-medium text-slate-600 hover:text-emerald-600 transition-colors">
+                                            <div className="bg-white p-2 rounded-lg border border-slate-200/60 shadow-xs"><Mail className="h-4 w-4 text-emerald-500" /></div>
+                                            info@icci.com.pk
+                                        </a>
+                                        <a href="tel:+92512261175" className="flex items-center gap-3 text-[13px] font-medium text-slate-600 hover:text-emerald-600 transition-colors">
+                                            <div className="bg-white p-2 rounded-lg border border-slate-200/60 shadow-xs"><Phone className="h-4 w-4 text-emerald-500" /></div>
+                                            +92-51-2261175
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Sticky Action Footer */}
+                            <div className="p-4 border-t border-slate-100 bg-slate-50/50 backdrop-blur-sm shrink-0">
+                                <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-bold rounded-xl py-5 text-[14px] transition-all shadow-sm shadow-emerald-600/10">
                                     Get Services
                                 </Button>
                             </div>
