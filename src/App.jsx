@@ -7,6 +7,8 @@ import Navbar from './components/Navbar'
 import GridSkeleton from "./components/ui/GridSkeleton";
 import Leadership from "./components/Leadership";
 import Achievements from "./components/Achievements";
+import TradeSupport from "./components/TradeSupport";
+import Departments from "./components/Departments";
 
 // Use lazy imports for your main sections or page views
 const HeroCarousel = lazy(() => import("./components/HeroCarousel"));
@@ -36,6 +38,8 @@ const App = () => {
           <ServicesGrid />
           <Leadership />
           <Achievements />
+          <TradeSupport />
+          <Departments />
         </Suspense>
       </main>
 

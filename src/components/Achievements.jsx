@@ -13,7 +13,7 @@ function AnimatedCounter({ target, duration = 2000 }) {
         const animate = (timestamp) => {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
-            
+
             // Ease-out calculation formula for a professional feel
             const easeOutQuad = progress * (2 - progress);
             setCount(Math.floor(easeOutQuad * (endValue - startValue) + startValue));
@@ -41,10 +41,13 @@ export default function Achievements() {
             </div>
 
             <div className="mx-auto max-w-6xl relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
+
                 {/* Left Column: Vision & Floating Stats */}
                 <div className="lg:col-span-4 space-y-8 flex flex-col justify-between h-full">
                     <div className="space-y-4">
+                        <span className="text-[11px] font-extrabold tracking-widest text-[#114b3e] uppercase bg-emerald-50 px-3 py-1 rounded-md border border-emerald-100 inline-block">
+                            Achievements
+                        </span>
                         <h2 className="text-3xl md:text-[38px] font-bold tracking-tight leading-tight max-w-xs">
                             Be a voice for business growth
                         </h2>
@@ -70,7 +73,7 @@ export default function Achievements() {
                         {/* 14K+ Members Badge */}
                         <div className="bg-white text-[#114b3e] rounded-[20px] p-5 flex-1 min-w-[180px] flex items-center gap-4 shadow-xl">
                             <div className="h-11 w-11 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
-                                <TrendingUp className="w-5 h-5 stroke-[2.5]" />
+                                <TrendingUp className="w-6 h-6 stroke-[2.5]" />
                             </div>
                             <div>
                                 <div className="text-2xl font-black tracking-tight leading-none">
@@ -99,7 +102,7 @@ export default function Achievements() {
                     </div>
 
                     <div className="pt-2">
-                        <button className="bg-[#8b6e4b] hover:bg-[#765d3f] text-white font-bold text-[13px] tracking-wide px-8 py-3.5 rounded-full transition-colors duration-300 shadow-md">
+                        <button className="bg-[#8b6e4b] hover:bg-[#765d3f] hover:cursor-pointer text-white font-bold text-[13px] tracking-wide px-8 py-3.5 rounded-full transition-colors duration-300 shadow-md">
                             Read More
                         </button>
                     </div>
@@ -119,13 +122,13 @@ function Interactive3DTrophy() {
         if (!containerRef.current) return;
         const card = containerRef.current;
         const rect = card.getBoundingClientRect();
-        
+
         const width = rect.width;
         const height = rect.height;
         const mouseX = e.clientX - rect.left - width / 2;
         const mouseY = e.clientY - rect.top - height / 2;
 
-        const rX = -(mouseY / height) * 35; 
+        const rX = -(mouseY / height) * 35;
         const rY = (mouseX / width) * 35;
 
         setRotate({ x: rX, y: rY });
@@ -146,8 +149,8 @@ function Interactive3DTrophy() {
             style={{ perspective: "1200px" }}
         >
             {/* Ambient Backlight Glow */}
-            <div 
-                className={`absolute w-64 h-64 bg-emerald-400/20 rounded-full filter blur-3xl transition-opacity duration-500 pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-30'}`} 
+            <div
+                className={`absolute w-64 h-64 bg-emerald-400/20 rounded-full filter blur-3xl transition-opacity duration-500 pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-30'}`}
             />
 
             {/* Main Interactive Matrix */}
@@ -159,22 +162,22 @@ function Interactive3DTrophy() {
                 }}
             >
                 {/* Geometrical Background Orbit Ring */}
-                <div 
+                <div
                     className="absolute border-2 border-dashed border-emerald-500/20 rounded-full w-64 h-64 transition-transform duration-700 pointer-events-none"
-                    style={{ 
+                    style={{
                         transform: isHovered ? "translateZ(-30px) rotate(45deg) scale(1.05)" : "translateZ(-15px) rotate(0deg) scale(1)"
                     }}
                 />
 
                 {/* THE PILLAR & STAR TROPHY ASSEMBLY */}
-                <div 
+                <div
                     className="relative flex flex-col items-center drop-shadow-[0_25px_60px_rgba(16,185,129,0.3)]"
                     style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}
                 >
                     {/* 1. Large Crowned Geometric Sharp Star */}
-                    <div 
+                    <div
                         className="w-32 h-32 bg-gradient-to-tr from-yellow-400 via-amber-300 to-yellow-500 flex items-center justify-center relative z-30 transition-transform duration-500 shadow-lg"
-                        style={{ 
+                        style={{
                             clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
                             transform: isHovered ? "translateZ(30px) scale(1.1) rotate(12deg)" : "translateZ(10px) scale(1) rotate(0deg)"
                         }}
@@ -183,9 +186,9 @@ function Interactive3DTrophy() {
                     </div>
 
                     {/* 2. Abstract Geometric Crystal Pillar Column */}
-                    <div 
+                    <div
                         className="w-16 h-36 bg-gradient-to-b from-emerald-500/80 via-emerald-600/90 to-emerald-950 border border-emerald-400/30 mt-[-15px] relative z-20 shadow-xl backdrop-blur-xs"
-                        style={{ 
+                        style={{
                             clipPath: "polygon(15% 0, 85% 0, 100% 100%, 0 100%)",
                             transform: "translateZ(0px)"
                         }}
@@ -206,16 +209,16 @@ function Interactive3DTrophy() {
                 </div>
 
                 {/* Floating Ambient Sparks */}
-                <div 
+                <div
                     className="absolute w-2 h-2 bg-emerald-400 rounded-full opacity-60 transition-all duration-500"
-                    style={{ 
+                    style={{
                         transform: isHovered ? "translate3d(-70px, -110px, 60px)" : "translate3d(0,0,0)",
                         boxShadow: "0 0 12px #34d399"
                     }}
                 />
-                <div 
+                <div
                     className="absolute w-1.5 h-1.5 bg-yellow-300 rounded-full opacity-80 transition-all duration-700"
-                    style={{ 
+                    style={{
                         transform: isHovered ? "translate3d(90px, -40px, 90px)" : "translate3d(0,0,0)",
                         boxShadow: "0 0 10px #fbbf24"
                     }}
