@@ -130,6 +130,7 @@ function InteractiveCard({ service }) {
                 <div className="mt-auto flex items-center gap-4 pt-2">
                     <div className="h-[1px] bg-[#a9c4b8] flex-1"></div>
                     <a
+                        rel="nofollow"
                         href={service.href}
                         className="inline-flex items-center gap-2 shrink-0 text-[13px] md:text-[14px] font-semibold text-[#114b3e] hover:text-emerald-700 transition-colors group/link"
                     >
