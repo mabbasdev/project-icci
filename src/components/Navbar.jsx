@@ -60,6 +60,7 @@ export default function Navbar() {
                                 role="button"
                                 tabIndex={0}
                                 className="flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:cursor-pointer rounded-xl h-10 w-10 border border-slate-100/50 transition-colors outline-none"
+                                aria-label="Open Navigation Menu"
                             >
                                 <Menu className="h-5.5 w-5.5" />
                             </div>
