@@ -9,6 +9,8 @@ import Leadership from "./components/Leadership";
 import Achievements from "./components/Achievements";
 import TradeSupport from "./components/TradeSupport";
 import Departments from "./components/Departments";
+import GlobalNetworkCTA from "./components/JoinNetwork";
+import Footer from "./components/Footer";
 
 // Use lazy imports for your main sections or page views
 const HeroCarousel = lazy(() => import("./components/HeroCarousel"));
@@ -40,6 +42,8 @@ const App = () => {
           <Achievements />
           <TradeSupport />
           <Departments />
+          <GlobalNetworkCTA />
+          <Footer />
         </Suspense>
       </main>
 

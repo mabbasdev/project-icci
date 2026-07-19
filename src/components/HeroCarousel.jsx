@@ -128,7 +128,7 @@ export default function HeroCarousel() {
                                     {/* Navigation Call-to-Action Controls */}
                                     <div className="pt-4 flex items-center gap-4">
                                         <a href={slide.primaryHref}>
-                                            <Button className="bg-emerald-600 text-white hover:bg-emerald-700 font-bold px-6 py-5.5 rounded-lg transition-all duration-200 group/btn text-[14px] shadow-lg shadow-emerald-600/10">
+                                            <Button className="bg-emerald-600 hover:cursor-pointer text-white hover:bg-emerald-700 font-bold px-6 py-5.5 rounded-lg transition-all duration-200 group/btn text-[14px] shadow-lg shadow-emerald-600/10">
                                                 {slide.primaryBtn}
                                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
                                             </Button>

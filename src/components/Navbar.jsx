@@ -121,7 +121,7 @@ export default function Navbar() {
                     <NavigationMenuList className="gap-1">
                         {NAV_LINKS.map((group) => (
                             <NavigationMenuItem key={group.label}>
-                                <NavigationMenuTrigger className="px-4 py-2 text-[14px] font-semibold text-slate-700 hover:text-emerald-600 data-[state=open]:text-emerald-600 bg-transparent data-[state=open]:bg-slate-100 rounded-lg transition-all duration-200">
+                                <NavigationMenuTrigger className="px-4 py-2 text-[14px] hover:cursor-pointer font-semibold text-slate-700 hover:text-emerald-600 data-[state=open]:text-emerald-600 bg-transparent data-[state=open]:bg-slate-100 rounded-lg transition-all duration-200">
                                     {group.label}
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
@@ -131,7 +131,7 @@ export default function Navbar() {
                                                 <NavigationMenuLink asChild>
                                                     <a
                                                         href={item.href}
-                                                        className="block rounded-xl p-3.5 transition-all duration-200 hover:bg-slate-100 group/item border border-transparent hover:border-slate-200"
+                                                        className="block rounded-xl p-3.5 transition-all duration-200 hover:cursor-pointer hover:bg-slate-100 group/item border border-transparent hover:border-emerald-300"
                                                     >
                                                         <p className="text-[14px] font-bold text-slate-900 group-hover/item:text-emerald-600 transition-colors duration-200">
                                                             {item.title}
@@ -152,7 +152,7 @@ export default function Navbar() {
 
                 {/* Right Call To Actions */}
                 <div className="hidden items-center gap-4 lg:flex">
-                    <Button className="bg-emerald-600 text-white hover:bg-emerald-700 font-bold shadow-sm shadow-emerald-600/10 hover:shadow-md hover:shadow-emerald-600/20 px-5.5 py-5 rounded-md transition-all duration-200 group/btn text-[14px]">
+                    <Button className="bg-emerald-600 hover:cursor-pointer text-white hover:bg-emerald-700 font-bold shadow-sm shadow-emerald-600/10 hover:shadow-md hover:shadow-emerald-600/20 px-5.5 py-5 rounded-md transition-all duration-200 group/btn text-[14px]">
                         Get Services
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
                     </Button>
