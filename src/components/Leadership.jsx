@@ -7,8 +7,8 @@ const LEADERS_DATA = [
         role: "Senior Vice President",
         image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Tahir-Ayub.png",
         tenure: "ICCI 2025-2026",
-        // Senior VP: Order 2 on mobile, Order 1 on desktop (left side)
-        orderClass: "order-2 md:order-1"
+        // Smooth scaling: 1 col on mobile, 2 col on tablet, 3 col on large desktop
+        orderClass: "order-2 sm:order-2 lg:order-1"
     },
     {
         id: 2,
@@ -16,8 +16,7 @@ const LEADERS_DATA = [
         role: "President",
         image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Sardar-Tahir-Mehmood.png",
         tenure: "ICCI 2025-2026",
-        // President: Order 1 on mobile, Order 2 on desktop (center slot)
-        orderClass: "order-1 md:order-2 md:-translate-y-4 md:shadow-lg md:border-emerald-200/50",
+        orderClass: "order-1 sm:order-1 sm:col-span-2 lg:col-span-1 lg:order-2 lg:-translate-y-4 lg:shadow-lg lg:border-emerald-200/50",
         isPresident: true
     },
     {
@@ -26,31 +25,30 @@ const LEADERS_DATA = [
         role: "Vice President",
         image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Irfan-Chaudhry.png",
         tenure: "ICCI 2025-2026",
-        // VP: Order 3 on mobile, Order 3 on desktop (right side)
-        orderClass: "order-3 md:order-3"
+        orderClass: "order-3 sm:order-3 lg:order-3"
     }
 ];
 
 export default function Leadership() {
     return (
-        <section className="w-full bg-[#f4f9f7]/40 py-24 px-4 md:px-8 border-b border-slate-100">
+        <section className="w-full bg-[#f4f9f7]/40 py-16 md:py-24 px-4 sm:px-6 md:px-8 border-b border-slate-100">
             <div className="mx-auto max-w-5xl">
 
                 {/* Centered Institutional Header */}
-                <div className="text-center mb-16 space-y-2">
+                <div className="text-center mb-12 md:mb-16 space-y-2">
                     <span className="text-[11px] font-extrabold tracking-widest text-[#114b3e] uppercase bg-emerald-50 px-3 py-1 rounded-md border border-emerald-100 inline-block">
                         Executive Leadership
                     </span>
-                    <h2 className="text-3xl md:text-[36px] font-bold text-[#114b3e] tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-[36px] font-bold text-[#114b3e] tracking-tight">
                         Meet Our Office Bearers
                     </h2>
-                    <p className="text-[#5c7a6e] text-[14px] max-w-md mx-auto">
+                    <p className="text-[#5c7a6e] text-[13px] sm:text-[14px] max-w-md mx-auto">
                         Driving strategic growth and industrial policy advocacy for the corporate ecosystem of Islamabad.
                     </p>
                 </div>
 
-                {/* 3-Column Centered Executive Layout with Desktop Alignment Cushioning */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 items-center justify-center pt-4">
+                {/* Highly responsive layout mapping out mobile, small/large tablet, and desktop breakpoints cleanly */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-8 items-stretch justify-center pt-4">
                     {LEADERS_DATA.map((leader) => (
                         <InteractiveLeaderCard key={leader.id} leader={leader} />
                     ))}
@@ -81,9 +79,8 @@ function InteractiveLeaderCard({ leader }) {
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={`group relative bg-white rounded-[24px] overflow-hidden border border-slate-200/60 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col text-center ${leader.orderClass}`}
+            className={`group relative bg-white rounded-[24px] overflow-hidden border border-slate-200/60 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col text-center max-w-md mx-auto w-full ${leader.orderClass}`}
         >
-            {/* Dynamic Spotlight Glow Layer */}
             <div
                 className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300"
                 style={{
@@ -92,7 +89,6 @@ function InteractiveLeaderCard({ leader }) {
                 }}
             />
 
-            {/* Profile Image Shell — Explicit 600x637 Responsive Aspect Ratio scaling */}
             <div className="w-full aspect-[600/637] bg-slate-100 overflow-hidden relative z-0">
                 <img
                     src={leader.image}
@@ -102,15 +98,14 @@ function InteractiveLeaderCard({ leader }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
             </div>
 
-            {/* Details Content Container */}
-            <div className="p-6 flex flex-col items-center flex-1 relative z-20 bg-transparent">
-                <span className={`text-[12px] font-bold uppercase tracking-wider mb-1 ${leader.isPresident ? 'text-emerald-600' : 'text-slate-500'}`}>
+            <div className="p-5 sm:p-6 flex flex-col items-center flex-1 relative z-20 bg-transparent">
+                <span className={`text-[11px] sm:text-[12px] font-bold uppercase tracking-wider mb-1 ${leader.isPresident ? 'text-emerald-600' : 'text-slate-500'}`}>
                     {leader.role}
                 </span>
-                <h3 className="text-[18px] font-bold text-[#114b3e] tracking-tight leading-snug mb-1">
+                <h3 className="text-[16px] sm:text-[18px] font-bold text-[#114b3e] tracking-tight leading-snug mb-1">
                     {leader.name}
                 </h3>
-                <p className="text-slate-400 text-[12px] font-medium">
+                <p className="text-slate-400 text-[11px] sm:text-[12px] font-medium">
                     {leader.tenure}
                 </p>
             </div>

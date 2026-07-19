@@ -169,16 +169,16 @@ export default function Footer() {
                 {/* Upper Deck */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-[#14362f]/60 items-center">
                     <div className="lg:col-span-7 space-y-6">
-                        <div className="flex items-center gap-4.5">
-                            <div className="w-18 h-18 cursor-pointer rounded-2xl bg-gradient-to-br from-emerald-600 to-[#0a231e] border border-emerald-500/30 flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.3)] shrink-0">
+                        <div className="flex items-center gap-4">
+                            <div className="w-16 h-16 sm:w-18 sm:h-18 cursor-pointer rounded-2xl bg-gradient-to-br from-emerald-600 to-[#0a231e] border border-emerald-500/30 flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.3)] shrink-0">
                                 <img
                                     src="/icci-logo.svg"
                                     alt="ICCI Logo"
                                     className="h-full w-full object-contain rounded-xl"
                                 />
                             </div>
-                            <div className="space-y-1.5">
-                                <h2 className="text-3xl font-black tracking-tight text-white leading-tight">
+                            <div className="space-y-1">
+                                <h2 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-white leading-tight">
                                     Islamabad Chamber of <br />
                                     <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-400 bg-clip-text text-transparent">
                                         Commerce & Industry

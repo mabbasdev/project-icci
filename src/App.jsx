@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from "react";
-import Navbar from './components/Navbar';
 import HeroCarousel from './components/HeroCarousel'; // Imported statically for instant top-of-page rendering
 import BackToTop from "./components/BackToTop";
 import GridSkeleton from "./components/ui/GridSkeleton";
+import Navbar from "./components/Navbar.jsx";
 
 // Lazy load below-the-fold and asset-heavy components
 const ServicesGrid = lazy(() => import("./components/ServicesGrid"));

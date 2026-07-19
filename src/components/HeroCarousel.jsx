@@ -41,7 +41,7 @@ const CAROUSEL_SLIDES = [
     },
     {
         id: 4,
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+        image: "https://plus.unsplash.com/premium_photo-1661679584923-e6f62b0a9834?auto=format&fit=crop&w=1200&q=80",
         tag: "Membership Benefit",
         title: "Annual Corporate Networking Gala",
         desc: "An exclusive evening bringing together top industrialists, foreign diplomats, and chamber members to foster new local commercial partnerships.",
@@ -75,7 +75,6 @@ export default function HeroCarousel() {
         return () => clearInterval(slideTimer);
     }, [nextSlide]);
 
-    // Added specific text-* and elements positioning utility mappings
     const getAlignmentStyles = (alignment) => {
         switch (alignment) {
             case "center":
@@ -89,6 +88,12 @@ export default function HeroCarousel() {
                     inner: "lg:col-span-7 lg:col-start-6 flex flex-col items-end text-right",
                     meta: "justify-end",
                     buttonGroup: "justify-end"
+                };
+            case "hide":
+                return {
+                    inner: "",
+                    meta: "",
+                    buttonGroup: ""
                 };
             case "left":
             default:
@@ -125,25 +130,24 @@ export default function HeroCarousel() {
                     return (
                         <div
                             key={slide.id}
-                            className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
-                                index === currentIndex
-                                    ? "opacity-100 scale-100 z-10"
-                                    : "opacity-0 scale-105 z-0 pointer-events-none"
-                            }`}
+                            className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${index === currentIndex
+                                ? "opacity-100 scale-100 z-10"
+                                : "opacity-0 scale-105 z-0 pointer-events-none"
+                                }`}
                         >
                             <img
                                 src={slide.image}
                                 alt={slide.title}
                                 className="w-full h-full object-cover object-center"
                             />
-                            
+
                             <div className={`absolute inset-0 transition-all duration-500 ${getOverlayGradient(align)}`} />
 
                             {!isHidden && (
                                 <div className="absolute inset-0 flex items-center">
                                     <div className="mx-auto w-full max-w-7xl px-8 grid grid-cols-1 lg:grid-cols-12">
                                         <div className={`space-y-5 text-white w-full ${styles.inner}`}>
-                                            
+
                                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-sm shadow-emerald-500/5">
                                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                                                 {slide.tag}
@@ -206,9 +210,8 @@ export default function HeroCarousel() {
                     <button
                         key={index}
                         onClick={() => setCurrentIndex(index)}
-                        className={`h-2 transition-all duration-300 rounded-full ${
-                            index === currentIndex ? "w-6 bg-emerald-500" : "w-2 bg-slate-600 hover:bg-slate-400"
-                        }`}
+                        className={`h-2 transition-all duration-300 rounded-full ${index === currentIndex ? "w-6 bg-emerald-500" : "w-2 bg-slate-600 hover:bg-slate-400"
+                            }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
                 ))}

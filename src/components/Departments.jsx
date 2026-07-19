@@ -137,7 +137,7 @@ export default function Departments() {
         "https://i0.wp.com/icci.com.pk/wp-content/uploads/2025/04/42.jpg",
         "https://i0.wp.com/icci.com.pk/wp-content/uploads/2025/04/43.jpg",
         "https://i0.wp.com/icci.com.pk/wp-content/uploads/2025/04/44.jpg",
-        "https://i0.wp.com/icci.com.uploads/2025/04/45.jpg",
+        "https://i0.wp.com/icci.com.pk/wp-content/uploads/2025/04/45.jpg",
         "https://i0.wp.com/icci.com.pk/wp-content/uploads/2025/04/46.jpg",
         "https://i0.wp.com/icci.com.pk/wp-content/uploads/2025/04/47.jpg",
         "https://i0.wp.com/icci.com.pk/wp-content/uploads/2025/04/48.jpg",
@@ -154,7 +154,6 @@ export default function Departments() {
 
     return (
         <>
-            {/* Embedded styles handling smooth horizontal marquee loops */}
             <style dangerouslySetInnerHTML={{
                 __html: `
                 @keyframes marquee {
@@ -169,29 +168,29 @@ export default function Departments() {
                 }
             `}} />
 
-            <section className="w-full bg-[#f4f7f5] py-24 px-4 md:px-8 relative overflow-hidden">
+            <section className="w-full bg-[#f4f7f5] py-16 md:py-24 px-4 sm:px-6 md:px-8 relative overflow-hidden">
                 <div className="mx-auto max-w-6xl relative z-10">
 
                     {/* Asymmetrical Header Row */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-12 md:mb-16">
                         <div className="lg:col-span-5 space-y-3">
                             <span className="text-[11px] font-extrabold tracking-widest text-[#114b3e] uppercase bg-emerald-50 px-3 py-1 rounded-md border border-emerald-100 inline-block">
                                 Departments
                             </span>
-                            <h2 className="text-3xl md:text-[42px] font-bold text-[#114b3e] tracking-tight leading-tight">
+                            <h2 className="text-2xl sm:text-3xl md:text-[42px] font-bold text-[#114b3e] tracking-tight leading-tight">
                                 Various reasons to choose us
                             </h2>
                             <div className="w-12 h-[3px] bg-[#8b6e4b]" />
                         </div>
                         <div className="lg:col-span-7 lg:pt-2">
-                            <p className="text-slate-600 text-[15px] max-w-xl">
+                            <p className="text-slate-600 text-[14px] sm:text-[15px] max-w-xl">
                                 We provide targeted institutional services across core administrative wings, ensuring your business has the backing it needs to scale smoothly.
                             </p>
                         </div>
                     </div>
 
-                    {/* Interactive Dynamic Grid Matrix */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+                    {/* Matrix Grid: Comfortably scales through 1, 2, and 3 columns */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 md:mb-20">
                         {departmentsData.map((dept, idx) => (
                             <DepartmentCard
                                 key={idx}
@@ -203,73 +202,69 @@ export default function Departments() {
                         <InteractiveCTACard />
                     </div>
 
-                    {/* Metrics Footer Layout Grid */}
-                    <div className="pt-12 border-t border-slate-300/50 mb-20">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center divide-y md:divide-y-0 md:divide-x divide-slate-300/60">
-                            <div className="flex flex-col items-center justify-center pb-6 md:pb-0">
-                                <div className="text-4xl md:text-5xl font-black text-[#114b3e] tracking-tight mb-2">
+                    {/* Metrics Layout: Balanced stack handling for tablets and mobile */}
+                    <div className="pt-12 border-t border-slate-300/50 mb-16 md:mb-20">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 text-center divide-y sm:divide-y-0 sm:divide-x divide-slate-300/60">
+                            <div className="flex flex-col items-center justify-center pb-6 sm:pb-0">
+                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-[#114b3e] tracking-tight mb-2">
                                     <AnimatedCounter target={14} />k
                                 </div>
-                                <div className="text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                                <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-500">
                                     Members
                                 </div>
                             </div>
 
-                            <div className="flex flex-col items-center justify-center py-6 md:py-0 md:px-4">
-                                <div className="text-4xl md:text-5xl font-black text-[#114b3e] tracking-tight mb-2">
+                            <div className="flex flex-col items-center justify-center py-6 sm:py-0 sm:px-4">
+                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-[#114b3e] tracking-tight mb-2">
                                     <AnimatedCounter target={40} />
                                 </div>
-                                <div className="text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                                <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-500">
                                     Years of Excellence
                                 </div>
                             </div>
 
-                            <div className="flex flex-col items-center justify-center pt-6 md:pt-0">
-                                <div className="text-4xl md:text-5xl font-black text-[#114b3e] tracking-tight mb-2">
+                            <div className="flex flex-col items-center justify-center pt-6 sm:pt-0">
+                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-[#114b3e] tracking-tight mb-2">
                                     <AnimatedCounter target={60} />+
                                 </div>
-                                <div className="text-[11px] font-bold uppercase tracking-widest text-slate-500 max-w-[200px] leading-relaxed">
+                                <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-500 max-w-[200px] leading-relaxed">
                                     National & International Partners
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Dynamic Auto-sliding Logo Container */}
+                    {/* Logo Container: Standard static slide widths on intermediate views prevent right-side overflow */}
                     <div className="pt-12 border-t border-slate-300/30">
-                        <h4 className="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-8">
+                        <h4 className="text-center text-[11px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-8">
                             Our Trusted Members & Core Partners
                         </h4>
 
-                        {/* Mask to blur edges giving smooth sliding premium transitions */}
                         <div className="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]">
-                            {/* Flex container displaying 6 visible spaces comfortably at standard screens */}
                             <div className="flex gap-4 w-max animate-marquee">
-                                {/* First loop pass */}
                                 {uniqueLogos.map((url, index) => (
                                     <div
                                         key={`slide-1-${index}`}
-                                        className="w-[calc(100vw/3-16px)] sm:w-[calc(100vw/4-16px)] md:w-[calc(100vw/6-16px)] lg:w-[160px] bg-white p-3 rounded-xl border border-slate-200/40 flex items-center justify-center hover:shadow-xs hover:border-emerald-700/10 transition-all duration-200 group shrink-0"
+                                        className="w-[120px] sm:w-[140px] md:w-[150px] lg:w-[160px] bg-white p-3 rounded-xl border border-slate-200/40 flex items-center justify-center hover:shadow-xs hover:border-emerald-700/10 transition-all duration-200 group shrink-0"
                                     >
                                         <img
                                             loading="lazy"
                                             src={`${url}?fit=147%2C81&ssl=1`}
                                             alt="ICCI Member Logo"
-                                            className="w-full h-auto max-h-10 object-contain opacity-75 filter grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-200"
+                                            className="w-full h-auto max-h-8 sm:max-h-10 object-contain opacity-75 filter grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-200"
                                         />
                                     </div>
                                 ))}
-                                {/* Duplicate pass ensuring clean seamless loops */}
                                 {uniqueLogos.map((url, index) => (
                                     <div
                                         key={`slide-2-${index}`}
-                                        className="w-[calc(100vw/3-16px)] sm:w-[calc(100vw/4-16px)] md:w-[calc(100vw/6-16px)] lg:w-[160px] bg-white p-3 rounded-xl border border-slate-200/40 flex items-center justify-center hover:shadow-xs hover:border-emerald-700/10 transition-all duration-200 group shrink-0"
+                                        className="w-[120px] sm:w-[140px] md:w-[150px] lg:w-[160px] bg-white p-3 rounded-xl border border-slate-200/40 flex items-center justify-center hover:shadow-xs hover:border-emerald-700/10 transition-all duration-200 group shrink-0"
                                     >
                                         <img
                                             loading="lazy"
                                             src={`${url}?fit=147%2C81&ssl=1`}
                                             alt="ICCI Member Logo"
-                                            className="w-full h-auto max-h-10 object-contain opacity-75 filter grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-200"
+                                            className="w-full h-auto max-h-8 sm:max-h-10 object-contain opacity-75 filter grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-200"
                                         />
                                     </div>
                                 ))}
@@ -300,7 +295,7 @@ function DepartmentCard({ title, desc, Icon }) {
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="border border-slate-300/60 rounded-2xl p-8 transition-all duration-300 hover:border-emerald-800/20 hover:shadow-[0_15px_40px_rgba(17,75,62,0.04)] relative overflow-hidden flex flex-col justify-between min-h-[250px] group"
+            className="border border-slate-300/60 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:border-emerald-800/20 hover:shadow-[0_15px_40px_rgba(17,75,62,0.04)] relative overflow-hidden flex flex-col justify-between  sm:min-h-[250px] group w-full"
         >
             <div
                 className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"
@@ -311,15 +306,15 @@ function DepartmentCard({ title, desc, Icon }) {
                         : "none"
                 }}
             />
-            <div className="space-y-5 relative z-20">
-                <div className="h-12 w-12 rounded-xl bg-emerald-50 text-[#114b3e] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-xs">
-                    <Icon className="w-5 h-5 stroke-[2]" />
+            <div className="space-y-4 sm:space-y-5 relative z-20 text-center">
+                <div className="h-10 w-10 sm:h-12 sm:w-12 mx-auto rounded-xl bg-emerald-50 text-[#114b3e] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-xs">
+                    <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5 stroke-[2]" />
                 </div>
-                <div className="space-y-2">
-                    <h3 className="font-bold text-[#114b3e] text-[17px] tracking-tight leading-snug">
+                <div className="space-y-1.5 sm:space-y-2">
+                    <h3 className="font-bold text-[#114b3e] text-[15px] sm:text-[17px] tracking-tight leading-snug">
                         {title}
                     </h3>
-                    <p className="text-slate-500 text-[13px] leading-relaxed">
+                    <p className="text-slate-500 text-[12px] sm:text-[13px] leading-relaxed">
                         {desc}
                     </p>
                 </div>
@@ -345,7 +340,7 @@ function InteractiveCTACard() {
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="bg-gradient-to-br from-[#114b3e] to-[#0c372d] text-white p-8 rounded-2xl shadow-sm flex flex-col justify-between min-h-[250px] group border border-[#114b3e] relative overflow-hidden transition-all duration-300"
+            className="bg-gradient-to-br from-[#114b3e] to-[#0c372d] text-white p-6 sm:p-8 rounded-2xl shadow-sm flex flex-col justify-between  sm:min-h-[250px] group border border-[#114b3e] relative overflow-hidden transition-all duration-300 w-full"
         >
             <div
                 className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"
@@ -356,9 +351,9 @@ function InteractiveCTACard() {
                         : "none"
                 }}
             />
-            <div className="space-y-3 relative z-20">
-                <h3 className="text-xl font-bold tracking-tight">Explore all operational structures</h3>
-                <p className="text-emerald-100/70 text-[13px] leading-relaxed">
+            <div className="space-y-2 sm:space-y-3 relative z-20">
+                <h3 className="text-lg sm:text-xl font-bold tracking-tight">Explore all operational structures</h3>
+                <p className="text-emerald-100/70 text-[12px] sm:text-[13px] leading-relaxed">
                     Discover how our dedicated departments work in unison to drive overarching business success.
                 </p>
             </div>

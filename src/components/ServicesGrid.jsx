@@ -48,22 +48,22 @@ const SERVICES_DATA = [
 
 export default function ServicesGrid() {
     return (
-        <section className="w-full bg-white py-20 px-4 md:px-8">
+        <section className="w-full bg-white py-16 md:py-20 px-4 sm:px-6 md:px-8">
             <div className="mx-auto max-w-7xl">
 
                 {/* Centered Section Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 md:mb-16">
                     <span className="text-[11px] font-extrabold tracking-widest text-[#114b3e] uppercase bg-emerald-50 px-3 py-1 rounded-md border border-emerald-100 inline-block">
                         What We Provide
                     </span>
-                    <h2 className="text-3xl md:text-[40px] font-bold text-[#114b3e] tracking-tight leading-tight max-w-3xl mx-auto">
+                    <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#114b3e] tracking-tight leading-tight max-w-3xl mx-auto mt-2">
                         Driving business growth with strategic insights
                     </h2>
                     <div className="h-0.5 w-16 bg-[#114b3e] mx-auto mt-4 opacity-20" />
                 </div>
 
-                {/* Grid Container */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Grid Container with intermediate sm breakpoint support */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {SERVICES_DATA.map((service) => (
                         <InteractiveCard key={service.id} service={service} />
                     ))}
@@ -74,7 +74,6 @@ export default function ServicesGrid() {
     );
 }
 
-// Sub-component to manage independent mouse-tracking configurations per card
 function InteractiveCard({ service }) {
     const cardRef = useRef(null);
     const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -83,8 +82,6 @@ function InteractiveCard({ service }) {
     const handleMouseMove = (e) => {
         if (!cardRef.current) return;
         const rect = cardRef.current.getBoundingClientRect();
-
-        // Calculate internal X and Y positions relative to the individual card boundary
         setCoords({
             x: e.clientX - rect.left,
             y: e.clientY - rect.top
@@ -97,9 +94,8 @@ function InteractiveCard({ service }) {
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="group relative flex flex-col bg-[#f4f9f7] rounded-[24px] overflow-hidden border border-emerald-100/30 shadow-xs hover:shadow-md transition-all duration-300"
+            className="group relative flex flex-col bg-[#f4f9f7] rounded-[24px] overflow-hidden border border-emerald-100/30 shadow-xs hover:shadow-md transition-all duration-300 w-full"
         >
-            {/* The Dynamic Glow Tracking Layer */}
             <div
                 className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300"
                 style={{
@@ -108,8 +104,8 @@ function InteractiveCard({ service }) {
                 }}
             />
 
-            {/* Card Image Wrapper */}
-            <div className="h-[210px] w-full overflow-hidden relative z-0">
+            {/* Scale aspect ratio smoothly dynamically on tablet frames */}
+            <div className="h-[180px] sm:h-[200px] md:h-[210px] w-full overflow-hidden relative z-0">
                 <img
                     src={service.image}
                     alt={service.title}
@@ -117,32 +113,28 @@ function InteractiveCard({ service }) {
                 />
             </div>
 
-            {/* Card Details Box */}
-            <div className="p-6 md:p-8 flex flex-col flex-1 relative z-20">
-                {/* Header with Shield Icon */}
-                <div className="flex gap-3.5 items-center mb-4">
-                    <div className="h-10 w-10 shrink-0 rounded-full bg-[#114b3e] flex items-center justify-center text-white">
-                        <ShieldCheck className="h-5 w-5" strokeWidth={1.5} />
+            <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-1 relative z-20">
+                <div className="flex gap-3 items-center sm:items-center mb-4">
+                    <div className="h-9 w-9 md:h-10 md:w-10 shrink-0 rounded-full bg-[#114b3e] flex items-center justify-center text-white">
+                        <ShieldCheck className="h-4.5 w-4.5 md:h-5 md:w-5" strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-[17px] font-bold text-[#114b3e] leading-snug pt-0.5">
+                    <h3 className="text-[15px] sm:text-[16px] md:text-[17px] font-bold text-[#114b3e] leading-snug pt-0.5">
                         {service.title}
                     </h3>
                 </div>
 
-                {/* Body Content Description */}
-                <p className="text-[#5c7a6e] text-[14px] leading-relaxed mb-8 flex-1">
+                <p className="text-[#5c7a6e] text-[13px] md:text-[14px] leading-relaxed mb-6 md:mb-8 flex-1">
                     {service.desc}
                 </p>
 
-                {/* Bottom Action Section */}
                 <div className="mt-auto flex items-center gap-4 pt-2">
                     <div className="h-[1px] bg-[#a9c4b8] flex-1"></div>
                     <a
                         href={service.href}
-                        className="inline-flex items-center gap-2 shrink-0 text-[14px] font-semibold text-[#114b3e] hover:text-emerald-700 transition-colors group/link"
+                        className="inline-flex items-center gap-2 shrink-0 text-[13px] md:text-[14px] font-semibold text-[#114b3e] hover:text-emerald-700 transition-colors group/link"
                     >
                         Read more
-                        <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" />
+                        <ArrowRight className="h-3.5 w-3.5 md:h-4 md:w-4 transition-transform duration-200 group-hover/link:translate-x-1" />
                     </a>
                 </div>
             </div>
