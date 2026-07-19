@@ -13,6 +13,7 @@ const CAROUSEL_SLIDES = [
         location: "Jinnah Convention Centre, Islamabad",
         primaryBtn: "Register as Exhibitor",
         primaryHref: "https://icci.com.pk/",
+        contentAlignment: "left"
     },
     {
         id: 2,
@@ -24,6 +25,7 @@ const CAROUSEL_SLIDES = [
         location: "ICCI Auditorium, Blue Area",
         primaryBtn: "View IT Initiatives",
         primaryHref: "https://icci.com.pk/",
+        contentAlignment: "center"
     },
     {
         id: 3,
@@ -35,6 +37,7 @@ const CAROUSEL_SLIDES = [
         location: "Serena Hotel, Islamabad",
         primaryBtn: "Read Briefing Paper",
         primaryHref: "https://icci.com.pk/",
+        contentAlignment: "right"
     },
     {
         id: 4,
@@ -46,6 +49,7 @@ const CAROUSEL_SLIDES = [
         location: "Marriott Hotel, Islamabad",
         primaryBtn: "Request Invitation",
         primaryHref: "https://icci.com.pk/",
+        contentAlignment: "hide"
     }
 ];
 
@@ -64,7 +68,6 @@ export default function HeroCarousel() {
         setCurrentIndex(newIndex);
     }, [currentIndex]);
 
-    // Auto-play mechanic (swaps every 6 seconds)
     useEffect(() => {
         const slideTimer = setInterval(() => {
             nextSlide();
@@ -72,76 +75,118 @@ export default function HeroCarousel() {
         return () => clearInterval(slideTimer);
     }, [nextSlide]);
 
+    // Added specific text-* and elements positioning utility mappings
+    const getAlignmentStyles = (alignment) => {
+        switch (alignment) {
+            case "center":
+                return {
+                    inner: "lg:col-span-8 lg:col-start-3 flex flex-col items-center text-center",
+                    meta: "justify-center",
+                    buttonGroup: "justify-center"
+                };
+            case "right":
+                return {
+                    inner: "lg:col-span-7 lg:col-start-6 flex flex-col items-end text-right",
+                    meta: "justify-end",
+                    buttonGroup: "justify-end"
+                };
+            case "left":
+            default:
+                return {
+                    inner: "lg:col-span-8 flex flex-col items-start text-left",
+                    meta: "justify-start",
+                    buttonGroup: "justify-start"
+                };
+        }
+    };
+
+    const getOverlayGradient = (alignment) => {
+        switch (alignment) {
+            case "center":
+                return "bg-slate-950/80 backdrop-blur-[1px]";
+            case "right":
+                return "bg-gradient-to-l from-slate-950/95 via-slate-950/80 to-transparent";
+            case "hide":
+                return "bg-slate-950/20";
+            case "left":
+            default:
+                return "bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-transparent";
+        }
+    };
+
     return (
         <section className="relative w-full h-[520px] md:h-[600px] bg-slate-950 overflow-hidden group/carousel">
-            {/* 1. IMAGE TRACK SLIDES */}
             <div className="relative w-full h-full">
-                {CAROUSEL_SLIDES.map((slide, index) => (
-                    <div
-                        key={slide.id}
-                        className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${index === currentIndex
-                            ? "opacity-100 scale-100 z-10"
-                            : "opacity-0 scale-105 z-0 pointer-events-none"
+                {CAROUSEL_SLIDES.map((slide, index) => {
+                    const align = slide.contentAlignment || "left";
+                    const isHidden = align === "hide";
+                    const styles = getAlignmentStyles(align);
+
+                    return (
+                        <div
+                            key={slide.id}
+                            className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
+                                index === currentIndex
+                                    ? "opacity-100 scale-100 z-10"
+                                    : "opacity-0 scale-105 z-0 pointer-events-none"
                             }`}
-                    >
-                        {/* Background Image asset */}
-                        <img
-                            src={slide.image}
-                            alt={slide.title}
-                            className="w-full h-full object-cover object-center"
-                        />
-                        {/* High-Contrast Gradient Veil Layer */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-transparent" />
+                        >
+                            <img
+                                src={slide.image}
+                                alt={slide.title}
+                                className="w-full h-full object-cover object-center"
+                            />
+                            
+                            <div className={`absolute inset-0 transition-all duration-500 ${getOverlayGradient(align)}`} />
 
-                        {/* Slide Content Layer */}
-                        <div className="absolute inset-0 flex items-center">
-                            <div className="mx-auto w-full max-w-7xl px-8 grid grid-cols-1 lg:grid-cols-12">
-                                <div className="lg:col-span-8 space-y-5 text-white">
-                                    {/* Categorization Pill Badge */}
-                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-sm shadow-emerald-500/5">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                                        {slide.tag}
-                                    </span>
+                            {!isHidden && (
+                                <div className="absolute inset-0 flex items-center">
+                                    <div className="mx-auto w-full max-w-7xl px-8 grid grid-cols-1 lg:grid-cols-12">
+                                        <div className={`space-y-5 text-white w-full ${styles.inner}`}>
+                                            
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-sm shadow-emerald-500/5">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                                {slide.tag}
+                                            </span>
 
-                                    {/* Core Title Display */}
-                                    <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
-                                        {slide.title}
-                                    </h1>
+                                            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.15] w-full">
+                                                {slide.title}
+                                            </h1>
 
-                                    {/* Explanatory Paragraph Context */}
-                                    <p className="text-slate-300 text-[14px] md:text-[16px] font-medium leading-relaxed max-w-2xl">
-                                        {slide.desc}
-                                    </p>
+                                            <p className="text-slate-300 text-[14px] md:text-[16px] font-medium leading-relaxed max-w-2xl">
+                                                {slide.desc}
+                                            </p>
 
-                                    {/* Context Metadata Node Stack */}
-                                    <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-[13px] text-slate-400 font-semibold pt-1">
-                                        <div className="flex items-center gap-2">
-                                            <Calendar className="h-4 w-4 text-emerald-500 shrink-0" />
-                                            <span>{slide.date}</span>
+                                            <div className={`flex flex-wrap items-center gap-y-2 gap-x-6 text-[13px] text-slate-400 font-semibold pt-1 w-full ${styles.meta}`}>
+                                                <div className="flex items-center gap-2">
+                                                    <Calendar className="h-4 w-4 text-emerald-500 shrink-0" />
+                                                    <span>{slide.date}</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <MapPin className="h-4 w-4 text-emerald-500 shrink-0" />
+                                                    <span>{slide.location}</span>
+                                                </div>
+                                            </div>
+
+                                            <div className={`pt-4 flex items-center gap-4 w-full ${styles.buttonGroup}`}>
+                                                <a href={slide.primaryHref}>
+                                                    <Button className="bg-emerald-600 hover:cursor-pointer text-white hover:bg-emerald-700 font-bold px-6 py-5.5 rounded-lg transition-all duration-200 group/btn text-[14px] shadow-lg shadow-emerald-600/10">
+                                                        {slide.primaryBtn}
+                                                        <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                                                    </Button>
+                                                </a>
+                                            </div>
+
                                         </div>
-                                        <div className="flex items-center gap-2">
-                                            <MapPin className="h-4 w-4 text-emerald-500 shrink-0" />
-                                            <span>{slide.location}</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Navigation Call-to-Action Controls */}
-                                    <div className="pt-4 flex items-center gap-4">
-                                        <a href={slide.primaryHref}>
-                                            <Button className="bg-emerald-600 hover:cursor-pointer text-white hover:bg-emerald-700 font-bold px-6 py-5.5 rounded-lg transition-all duration-200 group/btn text-[14px] shadow-lg shadow-emerald-600/10">
-                                                {slide.primaryBtn}
-                                                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
-                                            </Button>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
-            {/* 2. NAVIGATION BUTTON CONTROLS */}
+            {/* Navigation buttons */}
             <button
                 onClick={prevSlide}
                 className="absolute left-6 top-1/2 -translate-y-1/2 z-20 hidden items-center justify-center h-12 w-12 rounded-xl bg-slate-900/40 text-white hover:bg-emerald-600 border border-slate-700/30 backdrop-blur-md opacity-0 transition-all duration-300 group-hover/carousel:opacity-100 hover:scale-105 hover:shadow-lg md:flex"
@@ -155,16 +200,15 @@ export default function HeroCarousel() {
                 <ChevronRight className="h-5 w-5" />
             </button>
 
-            {/* 3. STEP INDEX DOT INDICATORS */}
+            {/* Pagination dots */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5 bg-slate-950/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-slate-800/40">
                 {CAROUSEL_SLIDES.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => setCurrentIndex(index)}
-                        className={`h-2 transition-all duration-300 rounded-full ${index === currentIndex
-                            ? "w-6 bg-emerald-500"
-                            : "w-2 bg-slate-600 hover:bg-slate-400"
-                            }`}
+                        className={`h-2 transition-all duration-300 rounded-full ${
+                            index === currentIndex ? "w-6 bg-emerald-500" : "w-2 bg-slate-600 hover:bg-slate-400"
+                        }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
                 ))}

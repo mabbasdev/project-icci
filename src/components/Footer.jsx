@@ -14,8 +14,8 @@ export default function Footer() {
         let animationFrameId;
         let points = [];
         const numPoints = 45;
-        const maxDistance = 160; // Increased line reach for a larger pattern appearance
-        const mouseRadius = 180; // Expanded interaction area for clear cursor push
+        const maxDistance = 160; 
+        const mouseRadius = 180; 
 
         const mouse = { x: null, y: null };
 
@@ -33,7 +33,7 @@ export default function Footer() {
                 points.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 1.2, // Faster base velocity for wider movement
+                    vx: (Math.random() - 0.5) * 1.2, 
                     vy: (Math.random() - 0.5) * 1.2,
                 });
             }
@@ -63,7 +63,6 @@ export default function Footer() {
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Update particle physics and handle cursor boundaries
             points.forEach((p) => {
                 p.x += p.vx;
                 p.y += p.vy;
@@ -85,14 +84,12 @@ export default function Footer() {
                     }
                 }
 
-                // Render structural joint dots at each point position
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2); // 2.5px radius visible dots
-                ctx.fillStyle = "rgba(52, 211, 153, 0.5)"; // Bright emerald tint matching the lines
+                ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2); 
+                ctx.fillStyle = "rgba(52, 211, 153, 0.5)"; 
                 ctx.fill();
             });
 
-            // Trace connecting matrix web lines
             ctx.lineWidth = 1.0;
             for (let i = 0; i < points.length; i++) {
                 for (let j = i + 1; j < points.length; j++) {
@@ -137,10 +134,6 @@ export default function Footer() {
         });
     };
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
     const socialLinks = [
         { name: "Twitter", path: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" },
         { name: "Facebook", path: "M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" },
@@ -156,19 +149,15 @@ export default function Footer() {
             onMouseLeave={() => setIsHovered(false)}
             className="w-full bg-[#071915] text-[#d1e2de] relative overflow-hidden font-sans border-t border-[#123029] transition-all duration-300"
         >
-            {/* Background Atmosphere Elements */}
             <div className="absolute top-0 right-1/4 w-[600px] h-[300px] bg-emerald-500/[0.02] rounded-full blur-[150px] pointer-events-none z-0" />
 
-            {/* Expanded Interactive Canvas Layer */}
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0 pointer-events-none z-0 block opacity-95"
             />
 
-            {/* Spotlight Layer */}
             <div
-                className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"
-                    }`}
+                className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
                 style={{
                     background: isHovered
                         ? `radial-gradient(450px circle at ${coords.x}px ${coords.y}px, rgba(251, 191, 36, 0.04), transparent 80%)`
@@ -177,15 +166,10 @@ export default function Footer() {
             />
 
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-20 pb-10 relative z-20">
-
                 {/* Upper Deck */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-[#14362f]/60 items-center">
                     <div className="lg:col-span-7 space-y-6">
                         <div className="flex items-center gap-4.5">
-                            {/* <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-[#0a231e] border border-emerald-500/30 flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.3)] shrink-0">
-                                <span className="text-white font-serif font-black text-2xl tracking-wider">I</span>
-                                </div> */}
-                            {/* <div className="flex h-12 w-12 items-center justify-center transition-all duration-300 group-hover:scale-105"> */}
                             <div className="w-18 h-18 cursor-pointer rounded-2xl bg-gradient-to-br from-emerald-600 to-[#0a231e] border border-emerald-500/30 flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.3)] shrink-0">
                                 <img
                                     src="/icci-logo.svg"
@@ -218,11 +202,11 @@ export default function Footer() {
                             <div className="grid grid-cols-2 gap-3">
                                 <a href="#" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-200 shadow-sm group">
                                     <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 group-hover:text-white transition-all duration-200">GET IT ON</span>
-                                    <span className="text-[14px] font-extrabold text-white  tracking-wide mt-0.5">Google Play</span>
+                                    <span className="text-[14px] font-extrabold text-white tracking-wide mt-0.5">Google Play</span>
                                 </a>
                                 <a href="#" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-200 shadow-sm group">
                                     <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 group-hover:text-white transition-all duration-200">DOWNLOAD ON THE</span>
-                                    <span className="text-[14px] font-extrabold text-white group-hover:text-white tracking-wide mt-0.5">App Store</span>
+                                    <span className="text-[14px] font-extrabold text-white tracking-wide mt-0.5">App Store</span>
                                 </a>
                             </div>
                         </div>
@@ -231,8 +215,7 @@ export default function Footer() {
 
                 {/* Central Link Deck */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-16 text-[15px]">
-
-                    {/* Column 1: Quick Links */}
+                    {/* Column 1 */}
                     <div className="space-y-6">
                         <h4 className="text-xs font-bold uppercase tracking-widest text-white border-l-2 border-emerald-500 pl-3 flex items-center h-5">
                             Quick Links
@@ -248,21 +231,13 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 2: Services */}
+                    {/* Column 2 */}
                     <div className="space-y-6">
                         <h4 className="text-xs font-bold uppercase tracking-widest text-white border-l-2 border-emerald-500 pl-3 flex items-center h-5">
                             Services
                         </h4>
                         <ul className="space-y-3.5 text-[#a3bfb9]">
-                            {[
-                                "Benefits of Joining ICCI",
-                                "Visa Recommendation Letter",
-                                "Certificate of Origin",
-                                "Member Discounts",
-                                "ICCI Facilitation Desks",
-                                "Executive Committee Decisions",
-                                "Business Dispute Resolution"
-                            ].map((service) => (
+                            {["Benefits of Joining ICCI", "Visa Recommendation Letter", "Certificate of Origin", "Member Discounts", "ICCI Facilitation Desks", "Executive Committee Decisions", "Business Dispute Resolution"].map((service) => (
                                 <li key={service}>
                                     <a href="#" className="hover:text-emerald-400 hover:translate-x-1 inline-block transition-all duration-200">
                                         {service}
@@ -272,21 +247,13 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Corporate Portals */}
+                    {/* Column 3 */}
                     <div className="space-y-6">
                         <h4 className="text-xs font-bold uppercase tracking-widest text-white border-l-2 border-emerald-500 pl-3 flex items-center h-5">
                             Resources
                         </h4>
                         <ul className="space-y-3.5 text-[#a3bfb9]">
-                            {[
-                                "Trade Exhibitions Calendar",
-                                "Research Publications",
-                                "Chamber News E-Paper",
-                                "SME Development Guides",
-                                "Taxation Support Desk",
-                                "Corporate Gallery",
-                                "Downloadable Forms"
-                            ].map((resource) => (
+                            {["Trade Exhibitions Calendar", "Research Publications", "Chamber News E-Paper", "SME Development Guides", "Taxation Support Desk", "Corporate Gallery", "Downloadable Forms"].map((resource) => (
                                 <li key={resource}>
                                     <a href="#" className="hover:text-emerald-400 hover:translate-x-1 inline-block transition-all duration-200">
                                         {resource}
@@ -296,7 +263,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 4: Get In Touch */}
+                    {/* Column 4 */}
                     <div className="space-y-6">
                         <h4 className="text-xs font-bold uppercase tracking-widest text-white border-l-2 border-emerald-500 pl-3 flex items-center h-5">
                             Get In Touch
@@ -319,7 +286,6 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 {/* Lower Deck */}
@@ -330,7 +296,7 @@ export default function Footer() {
                                 key={idx}
                                 href="#"
                                 aria-label={social.name}
-                                className="w-9 h-9 rounded-xl bg-[#0b2420] text-[#a3bfb9] hover:text-[#071915] border border-[#143c34] flex items-center justify-center hover:bg-emerald-400 transition-all duration-300 transform hover:-translate-y-1"
+                                className="w-9 h-9 rounded-lg bg-[#0b2420] text-[#a3bfb9] hover:text-[#071915] border border-[#143c34] flex items-center justify-center hover:bg-emerald-400 transition-all duration-300 transform hover:-translate-y-1"
                             >
                                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                                     <path d={social.path} />
@@ -349,20 +315,8 @@ export default function Footer() {
                         <p className="text-center sm:text-right border-t sm:border-t-0 sm:border-l border-[#14362f] pt-4 sm:pt-0 sm:pl-6 text-[13px]">
                             © 2026 <span className="text-white font-semibold">ICCI</span>. Crafted by <a href="#" className="hover:text-white font-semibold text-emerald-400 transition-colors">Muhammad Abbas</a>
                         </p>
-
-                        <button
-                            onClick={scrollToTop}
-                            className="w-9 h-9 rounded-xl bg-[#0b2420] hover:bg-emerald-400 text-emerald-400 hover:text-[#071915] border border-[#143c34] flex items-center justify-center shadow-lg transition-all duration-300 hover:-translate-y-1 shrink-0 cursor-pointer"
-                            aria-label="Scroll to top"
-                        >
-                            <svg className="w-4 h-4 stroke-current fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                                <line x1="12" y1="19" x2="12" y2="5"></line>
-                                <polyline points="5 12 12 5 19 12"></polyline>
-                            </svg>
-                        </button>
                     </div>
                 </div>
-
             </div>
         </footer>
     );
