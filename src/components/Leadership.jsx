@@ -5,7 +5,7 @@ const LEADERS_DATA = [
         id: 1,
         name: "Tahir Ayub",
         role: "Senior Vice President",
-        image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Tahir-Ayub.png",
+        image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Tahir-Ayub.png?w=320&ssl=1",
         tenure: "ICCI 2025-2026",
         // Smooth scaling: 1 col on mobile, 2 col on tablet, 3 col on large desktop
         orderClass: "order-2 sm:order-2 lg:order-1"
@@ -14,7 +14,7 @@ const LEADERS_DATA = [
         id: 2,
         name: "Sardar Tahir Mehmood",
         role: "President",
-        image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Sardar-Tahir-Mehmood.png",
+        image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Sardar-Tahir-Mehmood.png?w=320&ssl=1",
         tenure: "ICCI 2025-2026",
         orderClass: "order-1 sm:order-1 sm:col-span-2 lg:col-span-1 lg:order-2 lg:-translate-y-4 lg:shadow-lg lg:border-emerald-200/50",
         isPresident: true
@@ -23,7 +23,7 @@ const LEADERS_DATA = [
         id: 3,
         name: "Muhammad Irfan Chaudhry",
         role: "Vice President",
-        image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Irfan-Chaudhry.png",
+        image: "https://i0.wp.com/icci.com.pk/wp-content/uploads/2026/05/Irfan-Chaudhry.png?w=320&ssl=1",
         tenure: "ICCI 2025-2026",
         orderClass: "order-3 sm:order-3 lg:order-3"
     }
