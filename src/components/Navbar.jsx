@@ -107,12 +107,20 @@ export default function Navbar() {
             <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5">
                 {/* Branding Logo Area */}
                 <a href="#" className="flex items-center gap-3.5 group select-none">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-950 text-emerald-400 transition-all duration-300 shadow-sm group-hover:bg-emerald-600 group-hover:text-white group-hover:scale-105 group-hover:shadow-md">
-                        <Landmark className="h-5.5 w-5.5" />
+                    <div className="flex h-12 w-12 items-center justify-center transition-all duration-300 group-hover:scale-105">
+                        <img
+                            src="/icci-logo.svg"
+                            alt="ICCI Logo"
+                            className="h-full w-full object-contain rounded-xl"
+                        />
                     </div>
                     <div className="leading-tight">
-                        <span className="block text-[13px] font-extrabold tracking-tight text-slate-900 uppercase transition-colors duration-200 group-hover:text-emerald-600">Islamabad Chamber of</span>
-                        <span className="block text-[11px] font-bold tracking-widest text-slate-400 uppercase mt-0.5">Commerce & Industry</span>
+                        <span className="block text-[13px] font-extrabold tracking-tight text-slate-900 uppercase transition-colors duration-200 group-hover:text-emerald-600">
+                            Islamabad Chamber of
+                        </span>
+                        <span className="block text-[11px] font-bold tracking-widest text-slate-400 uppercase mt-0.5">
+                            Commerce & Industry
+                        </span>
                     </div>
                 </a>
 

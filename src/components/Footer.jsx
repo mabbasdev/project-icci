@@ -10,13 +10,13 @@ export default function Footer() {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
-        
+
         let animationFrameId;
         let points = [];
-        const numPoints = 45; 
+        const numPoints = 45;
         const maxDistance = 160; // Increased line reach for a larger pattern appearance
         const mouseRadius = 180; // Expanded interaction area for clear cursor push
-        
+
         const mouse = { x: null, y: null };
 
         const resizeCanvas = () => {
@@ -53,7 +53,7 @@ export default function Footer() {
 
         initPoints();
         window.addEventListener("resize", resizeCanvas);
-        
+
         const footerElem = footerRef.current;
         if (footerElem) {
             footerElem.addEventListener("mousemove", handleMouseMoveGlobal);
@@ -149,7 +149,7 @@ export default function Footer() {
     ];
 
     return (
-        <footer 
+        <footer
             ref={footerRef}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
@@ -160,16 +160,15 @@ export default function Footer() {
             <div className="absolute top-0 right-1/4 w-[600px] h-[300px] bg-emerald-500/[0.02] rounded-full blur-[150px] pointer-events-none z-0" />
 
             {/* Expanded Interactive Canvas Layer */}
-            <canvas 
+            <canvas
                 ref={canvasRef}
                 className="absolute inset-0 pointer-events-none z-0 block opacity-95"
             />
 
             {/* Spotlight Layer */}
-            <div 
-                className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 ${
-                    isHovered ? "opacity-100" : "opacity-0"
-                }`}
+            <div
+                className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"
+                    }`}
                 style={{
                     background: isHovered
                         ? `radial-gradient(450px circle at ${coords.x}px ${coords.y}px, rgba(251, 191, 36, 0.04), transparent 80%)`
@@ -178,18 +177,23 @@ export default function Footer() {
             />
 
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-20 pb-10 relative z-20">
-                
+
                 {/* Upper Deck */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-[#14362f]/60 items-center">
                     <div className="lg:col-span-7 space-y-6">
-                        <div className="flex items-start gap-4.5">
-                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-[#0a231e] border border-emerald-500/30 flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.3)] shrink-0">
+                        <div className="flex items-center gap-4.5">
+                            {/* <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-[#0a231e] border border-emerald-500/30 flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.3)] shrink-0">
                                 <span className="text-white font-serif font-black text-2xl tracking-wider">I</span>
+                                </div> */}
+                            {/* <div className="flex h-12 w-12 items-center justify-center transition-all duration-300 group-hover:scale-105"> */}
+                            <div className="w-18 h-18 cursor-pointer rounded-2xl bg-gradient-to-br from-emerald-600 to-[#0a231e] border border-emerald-500/30 flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.3)] shrink-0">
+                                <img
+                                    src="/icci-logo.svg"
+                                    alt="ICCI Logo"
+                                    className="h-full w-full object-contain rounded-xl"
+                                />
                             </div>
                             <div className="space-y-1.5">
-                                <span className="block font-serif text-[12px] uppercase tracking-widest text-emerald-400 font-bold">
-                                    اسلام آباد چیمبر آف کامرس اینڈ انڈسٹری
-                                </span>
                                 <h2 className="text-3xl font-black tracking-tight text-white leading-tight">
                                     Islamabad Chamber of <br />
                                     <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-400 bg-clip-text text-transparent">
@@ -199,7 +203,7 @@ export default function Footer() {
                             </div>
                         </div>
                         <p className="text-[#a3bfb9] leading-relaxed text-[15px] max-w-2xl">
-                            As a cornerstone of regional enterprise development, ICCI facilitates robust global business networks, delivers strategic industry representation, and empowers local market operations[cite: 5].
+                            As a cornerstone of regional enterprise development, ICCI facilitates robust global business networks, delivers strategic industry representation, and empowers local market operations.
                         </p>
                     </div>
 
@@ -212,13 +216,13 @@ export default function Footer() {
                                 <h3 className="text-white font-bold text-[17px]">Access Chamber Resources On-The-Go</h3>
                             </div>
                             <div className="grid grid-cols-2 gap-3">
-                                <a href="#" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-300 shadow-sm group">
-                                    <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 group-hover:text-[#061714]/80">GET IT ON</span>
-                                    <span className="text-[14px] font-extrabold text-white group-hover:text-[#061714] tracking-wide mt-0.5">Google Play</span>
+                                <a href="#" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-200 shadow-sm group">
+                                    <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 group-hover:text-white transition-all duration-200">GET IT ON</span>
+                                    <span className="text-[14px] font-extrabold text-white  tracking-wide mt-0.5">Google Play</span>
                                 </a>
-                                <a href="#" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-300 shadow-sm group">
-                                    <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 group-hover:text-[#061714]/80">DOWNLOAD ON THE</span>
-                                    <span className="text-[14px] font-extrabold text-white group-hover:text-[#061714] tracking-wide mt-0.5">App Store</span>
+                                <a href="#" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-200 shadow-sm group">
+                                    <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 group-hover:text-white transition-all duration-200">DOWNLOAD ON THE</span>
+                                    <span className="text-[14px] font-extrabold text-white group-hover:text-white tracking-wide mt-0.5">App Store</span>
                                 </a>
                             </div>
                         </div>
@@ -227,7 +231,7 @@ export default function Footer() {
 
                 {/* Central Link Deck */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-16 text-[15px]">
-                    
+
                     {/* Column 1: Quick Links */}
                     <div className="space-y-6">
                         <h4 className="text-xs font-bold uppercase tracking-widest text-white border-l-2 border-emerald-500 pl-3 flex items-center h-5">
@@ -298,18 +302,18 @@ export default function Footer() {
                             Get In Touch
                         </h4>
                         <div className="space-y-3.5 text-[#a3bfb9]">
-                            <div className="flex flex-col bg-[#0b2420]/30 border border-[#143c34]/40 p-3.5 rounded-xl min-h-[82px] justify-center">
+                            <div className="flex flex-col bg-[#0b2420]/30 hover:border-emerald-600 transition-all duration-100 border border-[#143c34]/40 p-3.5 rounded-xl min-h-[82px] justify-center">
                                 <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 mb-0.5">Headquarters</span>
                                 <span className="text-white text-[13.5px] leading-tight">Chamber House, Aiwan-e-Sanat-o-Tijarat Road, G-8/1, Islamabad</span>
                             </div>
-                            <div className="flex flex-col bg-[#0b2420]/30 border border-[#143c34]/40 p-3.5 rounded-xl min-h-[82px] justify-center">
+                            <div className="flex flex-col bg-[#0b2420]/30 hover:border-emerald-600 transition-all duration-100 border border-[#143c34]/40 p-3.5 rounded-xl min-h-[82px] justify-center">
                                 <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 mb-0.5">Inquiries Desk</span>
                                 <span className="text-white text-[14px] font-medium tracking-wide">Tel: +92-51-2261175</span>
                                 <span className="text-white text-[14px] font-medium tracking-wide">Fax: +92-51-2252950</span>
                             </div>
-                            <div className="flex flex-col bg-[#0b2420]/30 border border-[#143c34]/40 p-3.5 rounded-xl min-h-[64px] justify-center">
+                            <div className="flex flex-col bg-[#0b2420]/30 hover:border-emerald-600 transition-all duration-100 border border-[#143c34]/40 p-3.5 rounded-xl min-h-[64px] justify-center">
                                 <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 mb-0.5">Digital Mail</span>
-                                <a href="mailto:info@icci.com.pk" className="text-emerald-400 hover:underline font-medium text-[14px] break-all">
+                                <a href="mailto:info@icci.com.pk" className="text-white transition-all hover:text-emerald-400 hover:underline font-medium text-[14px] break-all">
                                     info@icci.com.pk
                                 </a>
                             </div>
@@ -341,7 +345,7 @@ export default function Footer() {
                             <a href="#" className="hover:text-emerald-400 transition-colors">Cookie Policy</a>
                             <a href="#" className="hover:text-emerald-400 transition-colors">Terms</a>
                         </div>
-                        
+
                         <p className="text-center sm:text-right border-t sm:border-t-0 sm:border-l border-[#14362f] pt-4 sm:pt-0 sm:pl-6 text-[13px]">
                             © 2026 <span className="text-white font-semibold">ICCI</span>. Crafted by <a href="#" className="hover:text-white font-semibold text-emerald-400 transition-colors">Muhammad Abbas</a>
                         </p>
