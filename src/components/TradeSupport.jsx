@@ -129,9 +129,9 @@ function InteractiveFeatureCard({ title, desc }) {
             <div className="flex gap-4 relative z-20">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div className="space-y-1">
-                    <h4 className="font-bold text-[#114b3e] text-[16px] tracking-tight">
+                    <h2 className="font-bold text-[#114b3e] text-[16px] tracking-tight">
                         {title}
-                    </h4>
+                    </h2>
                     <p className="text-slate-500 text-[13px] leading-relaxed">
                         {desc}
                     </p>

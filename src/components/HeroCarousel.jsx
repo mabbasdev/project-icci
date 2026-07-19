@@ -139,6 +139,7 @@ export default function HeroCarousel() {
                                 src={slide.image}
                                 alt={slide.title}
                                 className="w-full h-full object-cover object-center"
+                                fetchPriority="high"
                             />
 
                             <div className={`absolute inset-0 transition-all duration-500 ${getOverlayGradient(align)}`} />
