@@ -195,12 +195,14 @@ export default function HeroCarousel() {
             <button
                 onClick={prevSlide}
                 className="absolute left-6 top-1/2 -translate-y-1/2 z-20 hidden items-center justify-center h-12 w-12 rounded-xl bg-slate-900/40 text-white hover:bg-emerald-600 border border-slate-700/30 backdrop-blur-md opacity-0 transition-all duration-300 group-hover/carousel:opacity-100 hover:scale-105 hover:shadow-lg md:flex"
+                aria-label="Previous Slide"
             >
                 <ChevronLeft className="h-5 w-5" />
             </button>
             <button
                 onClick={nextSlide}
                 className="absolute right-6 top-1/2 -translate-y-1/2 z-20 hidden items-center justify-center h-12 w-12 rounded-xl bg-slate-900/40 text-white hover:bg-emerald-600 border border-slate-700/30 backdrop-blur-md opacity-0 transition-all duration-300 group-hover/carousel:opacity-100 hover:scale-105 hover:shadow-lg md:flex"
+                aria-label="Next Slide"
             >
                 <ChevronRight className="h-5 w-5" />
             </button>
