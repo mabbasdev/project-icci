@@ -10,7 +10,7 @@ export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-emerald-200/80 bg-white/90 backdrop-blur-md">
+        <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
             {/* 1. TOP UTILITY BAR (Hidden on mobile/tablet, shows from desktop up) */}
             <DesktopUtilityBar />
 
