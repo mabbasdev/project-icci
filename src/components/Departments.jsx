@@ -311,9 +311,9 @@ function DepartmentCard({ title, desc, Icon }) {
                     <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5 stroke-[2]" />
                 </div>
                 <div className="space-y-1.5 sm:space-y-2">
-                    <h3 className="font-bold text-[#114b3e] text-[15px] sm:text-[17px] tracking-tight leading-snug">
+                    <h2 className="font-bold text-[#114b3e] text-[15px] sm:text-[17px] tracking-tight leading-snug">
                         {title}
-                    </h3>
+                    </h2>
                     <p className="text-slate-500 text-[12px] sm:text-[13px] leading-relaxed">
                         {desc}
                     </p>

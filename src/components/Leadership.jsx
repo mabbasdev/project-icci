@@ -102,9 +102,9 @@ function InteractiveLeaderCard({ leader }) {
                 <span className={`text-[11px] sm:text-[12px] font-bold uppercase tracking-wider mb-1 ${leader.isPresident ? 'text-emerald-600' : 'text-slate-500'}`}>
                     {leader.role}
                 </span>
-                <h3 className="text-[16px] sm:text-[18px] font-bold text-[#114b3e] tracking-tight leading-snug mb-1">
+                <h2 className="text-[16px] sm:text-[18px] font-bold text-[#114b3e] tracking-tight leading-snug mb-1">
                     {leader.name}
-                </h3>
+                </h2>
                 <p className="text-slate-400 text-[11px] sm:text-[12px] font-medium">
                     {leader.tenure}
                 </p>

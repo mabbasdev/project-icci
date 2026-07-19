@@ -200,11 +200,11 @@ export default function Footer() {
                                 <h3 className="text-white font-bold text-[17px]">Access Chamber Resources On-The-Go</h3>
                             </div>
                             <div className="grid grid-cols-2 gap-3">
-                                <a href="#" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-200 shadow-sm group">
+                                <a href="https://play.google.com/store/apps/details?id=com.orbitconsulting.icci" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-200 shadow-sm group">
                                     <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 group-hover:text-white transition-all duration-200">GET IT ON</span>
                                     <span className="text-[14px] font-extrabold text-white tracking-wide mt-0.5">Google Play</span>
                                 </a>
-                                <a href="#" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-200 shadow-sm group">
+                                <a href="https://apps.apple.com/app/icci-members-app/id6745682247" className="bg-[#061714] hover:bg-emerald-500 hover:text-[#061714] border border-[#18453c] px-4 py-3 rounded-xl flex flex-col justify-center transition-all duration-200 shadow-sm group">
                                     <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 group-hover:text-white transition-all duration-200">DOWNLOAD ON THE</span>
                                     <span className="text-[14px] font-extrabold text-white tracking-wide mt-0.5">App Store</span>
                                 </a>
@@ -295,7 +295,7 @@ export default function Footer() {
                             <a
                                 key={idx}
                                 href="#"
-                                aria-label={social.name}
+                                aria-label={`Follow ICCI on ${social.name}`}
                                 className="w-9 h-9 rounded-lg bg-[#0b2420] text-[#a3bfb9] hover:text-[#071915] border border-[#143c34] flex items-center justify-center hover:bg-emerald-400 transition-all duration-300 transform hover:-translate-y-1"
                             >
                                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

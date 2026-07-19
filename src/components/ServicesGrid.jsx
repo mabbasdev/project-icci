@@ -118,9 +118,9 @@ function InteractiveCard({ service }) {
                     <div className="h-9 w-9 md:h-10 md:w-10 shrink-0 rounded-full bg-[#114b3e] flex items-center justify-center text-white">
                         <ShieldCheck className="h-4.5 w-4.5 md:h-5 md:w-5" strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-[15px] sm:text-[16px] md:text-[17px] font-bold text-[#114b3e] leading-snug pt-0.5">
+                    <h2 className="text-[15px] sm:text-[16px] md:text-[17px] font-bold text-[#114b3e] leading-snug pt-0.5">
                         {service.title}
-                    </h3>
+                    </h2>
                 </div>
 
                 <p className="text-[#5c7a6e] text-[13px] md:text-[14px] leading-relaxed mb-6 md:mb-8 flex-1">

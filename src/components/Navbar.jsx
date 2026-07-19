@@ -24,6 +24,9 @@ export default function Navbar() {
                             src="/icci-logo.svg"
                             alt="ICCI Logo"
                             className="h-full w-full object-contain rounded-xl"
+                            aria-label="ICCI Home Page"
+                            width={50}
+                            height={50}
                         />
                     </div>
                     <div className="leading-tight">

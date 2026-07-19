@@ -120,7 +120,7 @@ export default function ServicesCarousel() {
                                             href={service.href} 
                                             className="inline-flex items-center gap-2 text-[14px] font-medium text-[#114b3e] hover:text-emerald-700 transition-colors"
                                         >
-                                            Read more
+                                            {/* Read more */}
                                             <ArrowRight className="h-4 w-4" />
                                         </a>
                                     </div>

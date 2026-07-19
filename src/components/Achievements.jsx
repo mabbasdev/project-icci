@@ -103,7 +103,7 @@ export default function Achievements() {
 
                     <div className="pt-2">
                         <button className="bg-[#8b6e4b] hover:bg-[#765d3f] hover:cursor-pointer text-white font-bold text-[13px] tracking-wide px-8 py-3.5 rounded-full transition-colors duration-300 shadow-md">
-                            Read More
+                            Want to see more?
                         </button>
                     </div>
                 </div>
