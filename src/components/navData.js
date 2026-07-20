@@ -2,7 +2,7 @@ export const NAV_LINKS = [
     {
         label: "About & Leadership",
         items: [
-            { title: "Profile & Message", href: "https://icci.com.pk/profile/", desc: "President message, chamber history, and core objectives." },
+            { title: "Profile & Message", href: "about", desc: "President message, chamber history, and core objectives." },
             { title: "Executive Committee", href: "https://icci.com.pk/executive-members/", desc: "Meet current office bearers and former presidents." },
             { title: "Secretariat & Team", href: "https://icci.com.pk/our-team/", desc: "Chamber staff directory, internal operations, and departments." },
             { title: "Minutes of Meetings", href: "https://icci.com.pk/minutes-of-meeting/", desc: "Official archives and downloadable session minutes from 2022–2026." },
@@ -13,7 +13,7 @@ export const NAV_LINKS = [
     {
         label: "Membership",
         items: [
-            { title: "How to Join ICCI", href: "https://icci.com.pk/how-to-join-icci/", desc: "Step-by-step registration guidelines and onboarding process." },
+            { title: "How to Join ICCI", href: "join-us", desc: "Step-by-step registration guidelines and onboarding process." },
             { title: "Membership Classes", href: "https://icci.com.pk/membership-classes/", desc: "Ordinary, Associate, and Affiliate corporate categories." },
             { title: "Fee Structure", href: "https://icci.com.pk/fee-structure/", desc: "Up-to-date schedule of dues, entry costs, and renewal brackets." },
             { title: "Membership Forms", href: "https://icci.com.pk/membership-card-forms/", desc: "Downloadable registration files, card requests, and address updates." },

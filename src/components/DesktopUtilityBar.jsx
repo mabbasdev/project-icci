@@ -1,7 +1,9 @@
 import React from "react";
 import { Mail, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function DesktopUtilityBar() {
+    const UtilLinks = {}
     return (
         <div className="hidden border-b border-slate-100 bg-slate-950 text-slate-300 md:block">
             <div
@@ -17,11 +19,20 @@ export default function DesktopUtilityBar() {
                     </a>
                 </div>
                 <div className="flex items-center gap-5">
-                    {["FAQs", "Contact", "Careers", "Feedback"].map((item) => (
-                        <a key={item} href="https://icci.com.pk/"
-                            className="transition-colors hover:text-emerald-400 hover:underline duration-200">
-                            {item}
-                        </a>
+                    {/* {["FAQs", "Contact", "Careers", "Feedback"].map((item) => ( */}
+                    {[
+                        { label: "FAQs", path: "/faqs" },
+                        { label: "Contact", path: "/contact" },
+                        { label: "Careers", path: "/careers" },
+                        { label: "Feedback", path: "/feedback" }
+                    ].map((item) => (
+                        <Link
+                            key={item.label}
+                            to={item.path}
+                            className="transition-colors hover:text-emerald-400 hover:underline duration-200"
+                        >
+                            {item.label}
+                        </Link>
                     ))}
                 </div>
             </div>

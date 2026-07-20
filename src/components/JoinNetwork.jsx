@@ -8,29 +8,29 @@ export default function GlobalNetworkCTA() {
     const hudTextRef = useRef(null);
     const hudContainerRef = useRef(null);
     const hudPlaceholderRef = useRef(null);
-    
+
     const [isDragging, setIsDragging] = useState(false);
-    const [rotationX, setRotationX] = useState(0); 
+    const [rotationX, setRotationX] = useState(0);
 
     const dragStartX = useRef(0);
     const currentRotationX = useRef(0);
-    
+
     // Physics & Interpolation States
     const mousePos = useRef({ x: 0, y: 0, canvasX: 0, canvasY: 0, isHovered: false, targetHover: 0, currentHover: 0 });
     const tilt = useRef({ targetX: 0, targetY: 0, currentX: 0, currentY: 0 });
-    
-    const baseSpeed = 0.0015; 
+
+    const baseSpeed = 0.0015;
     const mapDots = useRef([]);
     const radius = 160;
 
     // Generate Uniform Globe Dots
     if (mapDots.current.length === 0) {
-        const numPoints = 650; 
+        const numPoints = 650;
         for (let i = 0; i < numPoints; i++) {
-            const y = 1 - (i / (numPoints - 1)) * 2; 
-            const radiusAtY = Math.sqrt(1 - y * y); 
+            const y = 1 - (i / (numPoints - 1)) * 2;
+            const radiusAtY = Math.sqrt(1 - y * y);
             const goldenRatio = (1 + Math.sqrt(5)) / 2;
-            const theta = 2 * Math.PI * i / goldenRatio; 
+            const theta = 2 * Math.PI * i / goldenRatio;
 
             mapDots.current.push({
                 x: Math.cos(theta) * radiusAtY * radius,
@@ -50,7 +50,7 @@ export default function GlobalNetworkCTA() {
             angle: 0,
             speed: 0.014,
             orbitRadius: radius + 25,
-            orbitHeightFactor: 0.2, 
+            orbitHeightFactor: 0.2,
             orbitDepthFactor: 0.9,
             tiltOffset: 0.2,
             isHovered: false
@@ -60,10 +60,10 @@ export default function GlobalNetworkCTA() {
             name: "NASA | ISS Module",
             msg: "NASA: Establishing orbital telemetry uplink with local ground station.",
             type: "station",
-            angle: 2.1, 
+            angle: 2.1,
             speed: 0.008,
             orbitRadius: radius + 55,
-            orbitHeightFactor: 0.5, 
+            orbitHeightFactor: 0.5,
             orbitDepthFactor: 0.75,
             tiltOffset: -0.4,
             isHovered: false
@@ -76,7 +76,7 @@ export default function GlobalNetworkCTA() {
             angle: 4.3,
             speed: 0.018,
             orbitRadius: radius + 38,
-            orbitHeightFactor: -0.35, 
+            orbitHeightFactor: -0.35,
             orbitDepthFactor: 0.8,
             tiltOffset: 0.6,
             isHovered: false
@@ -97,9 +97,9 @@ export default function GlobalNetworkCTA() {
             ctx.save();
             ctx.translate(x, y);
             ctx.rotate(sat.angle + Math.PI / 4);
-            
+
             const size = 6 * scale;
-            
+
             if (sat.type === "ship") {
                 ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
                 ctx.strokeStyle = `rgba(52, 211, 153, ${alpha})`;
@@ -117,15 +117,15 @@ export default function GlobalNetworkCTA() {
                 ctx.moveTo(0, size);
                 ctx.lineTo(0, size * 1.5);
                 ctx.stroke();
-            } 
+            }
             else if (sat.type === "station") {
                 ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
                 ctx.strokeStyle = `rgba(52, 211, 153, ${alpha})`;
                 ctx.lineWidth = 1;
-                
+
                 ctx.fillRect(-size / 3, -size, (size * 2) / 3, size * 2);
                 ctx.strokeRect(-size / 3, -size, (size * 2) / 3, size * 2);
-                
+
                 ctx.beginPath();
                 ctx.moveTo(-size * 1.8, 0);
                 ctx.lineTo(size * 1.8, 0);
@@ -136,7 +136,7 @@ export default function GlobalNetworkCTA() {
                 ctx.fillRect(-size * 1.1, -size * 0.6, size * 0.6, size * 1.2);
                 ctx.fillRect(size * 0.5, -size * 0.6, size * 0.6, size * 1.2);
                 ctx.fillRect(size * 1.2, -size * 0.6, size * 0.6, size * 1.2);
-            } 
+            }
             else {
                 ctx.strokeStyle = `rgba(52, 211, 153, ${alpha})`;
                 ctx.lineWidth = 1.5;
@@ -144,7 +144,7 @@ export default function GlobalNetworkCTA() {
                 ctx.moveTo(-size * 1.2, -size / 4);
                 ctx.lineTo(size * 1.2, -size / 4);
                 ctx.stroke();
-                
+
                 ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
                 ctx.fillRect(-size * 0.3, -size * 0.6, size * 0.6, size * 0.6);
             }
@@ -180,12 +180,12 @@ export default function GlobalNetworkCTA() {
             const glowRadius = radius * (1.2 + m.currentHover * 0.3);
             const glowX = cx + (t.currentX * radius * 0.4 * m.currentHover);
             const glowY = cy - (t.currentY * radius * 0.4 * m.currentHover);
-            
+
             const bgGlow = ctx.createRadialGradient(glowX, glowY, 0, glowX, glowY, glowRadius);
             bgGlow.addColorStop(0, `rgba(52, 211, 153, ${0.12 + m.currentHover * 0.08})`);
             bgGlow.addColorStop(0.5, `rgba(52, 211, 153, ${0.04 + m.currentHover * 0.03})`);
             bgGlow.addColorStop(1, "rgba(52, 211, 153, 0)");
-            
+
             ctx.fillStyle = bgGlow;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -233,7 +233,7 @@ export default function GlobalNetworkCTA() {
 
             const projectedSats = satellites.current.map(sat => {
                 sat.angle = (sat.angle + sat.speed * (isDragging ? 0.2 : speedMultiplier)) % (2 * Math.PI);
-                
+
                 let sx = Math.cos(sat.angle) * sat.orbitRadius;
                 let sy = Math.sin(sat.angle) * sat.orbitRadius * sat.orbitHeightFactor;
                 let sz = Math.sin(sat.angle) * sat.orbitRadius * sat.orbitDepthFactor;
@@ -256,9 +256,9 @@ export default function GlobalNetworkCTA() {
                 const sScale = sFov / (sFov + sz);
                 const projX = sx * sScale + cx;
                 const projY = sy * sScale + cy;
-                
+
                 const hitDistance = Math.hypot(m.canvasX - projX, m.canvasY - projY);
-                const isHoveredNow = hitDistance < 18; 
+                const isHoveredNow = hitDistance < 18;
                 sat.isHovered = isHoveredNow;
 
                 if (isHoveredNow) {
@@ -281,16 +281,16 @@ export default function GlobalNetworkCTA() {
             projectedSats.forEach(({ sat, projX, projY, sz, sScale, alpha }) => {
                 ctx.lineWidth = sat.isHovered ? 1.2 : 0.6;
                 ctx.setLineDash([3, 6]);
-                ctx.strokeStyle = sat.isHovered 
+                ctx.strokeStyle = sat.isHovered
                     ? `rgba(110, 231, 183, 0.4)`
                     : `rgba(52, 211, 153, ${0.04 + m.currentHover * 0.08})`;
-                
+
                 ctx.beginPath();
                 ctx.ellipse(cx, cy, sat.orbitRadius, sat.orbitRadius * Math.abs(sat.orbitHeightFactor), t.currentY * 0.3 * m.currentHover, 0, 2 * Math.PI);
                 ctx.stroke();
                 ctx.setLineDash([]);
 
-                if (sz >= 0) { 
+                if (sz >= 0) {
                     drawSatelliteObject(sat, projX, projY, sScale, alpha * 0.4);
                 }
             });
@@ -392,15 +392,15 @@ export default function GlobalNetworkCTA() {
             const y = e.clientY - rect.top;
             const midX = rect.width / 2;
             const midY = rect.height / 2;
-            
+
             mousePos.current.canvasX = x;
             mousePos.current.canvasY = y;
-            
+
             const distFromCenter = Math.hypot(x - midX, y - midY);
             mousePos.current.isHovered = distFromCenter < radius + 90;
 
             if (mousePos.current.isHovered) {
-                tilt.current.targetX = ((x - midX) / midX) * 0.35; 
+                tilt.current.targetX = ((x - midX) / midX) * 0.35;
                 tilt.current.targetY = -((y - midY) / midY) * 0.35;
             }
         }
@@ -423,9 +423,9 @@ export default function GlobalNetworkCTA() {
     return (
         <section className="w-full bg-[#f4f7f5] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             <div className="max-w-6xl mx-auto relative">
-                
+
                 <div className="w-full bg-gradient-to-br from-[#164e41] to-[#0c3129] rounded-[2.5rem] p-8 md:p-16 shadow-[0_30px_70px_rgba(12,49,41,0.18)] border border-emerald-800/20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-12 lg:gap-6">
-                    
+
                     <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent" />
 
                     {/* Left text content panel */}
@@ -461,14 +461,14 @@ export default function GlobalNetworkCTA() {
                         </div>
 
                         <div className="pt-2 flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
-                            <a 
-                                href="tel:+92512261175" 
+                            <a
+                                href="tel:+92512261175"
                                 className="w-full sm:w-auto flex items-center justify-center bg-gradient-to-r from-[#8b6e4b] to-[#a28560] hover:from-[#7c6141] hover:to-[#917653] text-white px-7 py-4 rounded-lg transition-all duration-300 shadow-md group border border-[#a28560]/20 text-sm font-semibold tracking-wide"
                             >
                                 Call Now: +92-51-2261175
                             </a>
-                            <a 
-                                href="#" 
+                            <a
+                                href="#"
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-300 hover:text-white transition-colors py-3 group"
                             >
                                 Learn About Alliances
@@ -479,7 +479,7 @@ export default function GlobalNetworkCTA() {
 
                     {/* Right interactive canvas view panel */}
                     <div className="w-full lg:w-2/5 flex justify-center relative z-10 lg:h-[350px]">
-                        <div 
+                        <div
                             ref={containerRef}
                             onMouseDown={handleMouseDown}
                             onMouseMove={handleMouseMove}
@@ -487,8 +487,8 @@ export default function GlobalNetworkCTA() {
                             onMouseLeave={handleMouseLeave}
                             className="w-[420px] h-[420px] lg:absolute lg:-top-12 lg:-right-8 flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
                         >
-                            <canvas 
-                                ref={canvasRef} 
+                            <canvas
+                                ref={canvasRef}
                                 className="w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(52,211,153,0.18)]"
                             />
                         </div>

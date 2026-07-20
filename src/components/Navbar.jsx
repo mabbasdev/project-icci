@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import DesktopUtilityBar from "./DesktopUtilityBar.jsx";
 import DesktopNavMenu from "./DesktopNavMenu.jsx";
 import MobileNavMenu from "./MobileNavMenu.jsx";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function Navbar() {
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4 lg:py-5">
 
                 {/* Branding Logo Area */}
-                <a href="#" className="flex items-center gap-3 group select-none shrink-0">
+                <Link to="/" className="flex items-center gap-3 group select-none shrink-0">
                     <div className="flex h-10 w-10 sm:h-11 sm:w-11 lg:h-12 lg:w-12 items-center justify-center transition-all duration-300 group-hover:scale-105">
                         <img
                             src="/icci-logo.svg"
@@ -37,7 +38,7 @@ export default function Navbar() {
                             Commerce & Industry
                         </span>
                     </div>
-                </a>
+                </Link>
 
                 {/* Desktop Navigation Menu (Guaranteed hidden below 1024px) */}
                 <div className="hidden lg:block">

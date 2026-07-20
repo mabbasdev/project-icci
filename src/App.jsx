@@ -1,39 +1,47 @@
 import React, { Suspense, lazy } from "react";
-import HeroCarousel from './components/HeroCarousel'; // Imported statically for instant top-of-page rendering
 import BackToTop from "./components/BackToTop";
 import GridSkeleton from "./components/ui/GridSkeleton";
 import Navbar from "./components/Navbar.jsx";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Feedback from "./pages/Feedback";
+import About from "./pages/About";
+import JoinUs from "./pages/JoinUs";
 
-// Lazy load below-the-fold and asset-heavy components
-const ServicesGrid = lazy(() => import("./components/ServicesGrid"));
-const Leadership = lazy(() => import("./components/Leadership"));
-const Achievements = lazy(() => import("./components/Achievements"));
-const TradeSupport = lazy(() => import("./components/TradeSupport"));
-const Departments = lazy(() => import("./components/Departments"));
-const GlobalNetworkCTA = lazy(() => import("./components/JoinNetwork"));
 const Footer = lazy(() => import("./components/Footer"));
 
 const App = () => {
+  const location = useLocation();
+
+  // Define valid app paths
+  const validPaths = ["/", "/about", "/contact", "/feedback", "/join-us"];
+
+  // Check if current path matches standard routes. If not, treat as 404.
+  const isExistingRoute = validPaths.includes(location.pathname);
+
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
-      <Navbar />
+      {/* Conditionally render Navbar only on valid routes */}
+      {isExistingRoute && <Navbar />}
 
-      <main>
-        {/* Render critical top content immediately */}
-        <BackToTop />
-        <HeroCarousel />
+      <Suspense fallback={<GridSkeleton />}>
+        <main>
+          <BackToTop />
+          <Routes>
+            <Route index path="/" element={<Home />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="feedback" element={<Feedback />} />
+            <Route path="about" element={<About />} />
+            <Route path="join-us" element={<JoinUs />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
 
-        {/* Lazy load the remaining sections as the user interacts */}
-        <Suspense fallback={<GridSkeleton />}>
-          <ServicesGrid />
-          <Leadership />
-          <Achievements />
-          <TradeSupport />
-          <Departments />
-          <GlobalNetworkCTA />
-          <Footer />
-        </Suspense>
-      </main>
+        {/* Conditionally render Footer only on valid routes */}
+        {isExistingRoute && <Footer />}
+      </Suspense>
     </div>
   );
 }
