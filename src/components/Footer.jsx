@@ -313,7 +313,7 @@ export default function Footer() {
                         </div>
 
                         <p className="text-center sm:text-right border-t sm:border-t-0 sm:border-l border-[#14362f] pt-4 sm:pt-0 sm:pl-6 text-[13px]">
-                            © 2026 <span className="text-white font-semibold">ICCI</span>. Crafted by <a href="#" className="hover:text-white font-semibold text-emerald-400 transition-colors">Muhammad Abbas</a>
+                            © 2026 <span className="text-white font-semibold">ICCI</span>. Crafted by <a href="https://www.linkedin.com/in/mabbasdev/" className="hover:text-white font-semibold text-emerald-400 transition-colors">Muhammad Abbas</a>
                         </p>
                     </div>
                 </div>

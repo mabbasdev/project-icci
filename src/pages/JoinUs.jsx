@@ -105,7 +105,7 @@ function JoinUs() {
                     />
                     <button
                         onClick={() => setActiveTier('corporate')}
-                        className={`flex-1 py-3 text-center font-bold text-sm rounded-xl transition-colors duration-300 relative z-10 ${
+                        className={`cursor-pointer flex-1 py-3 text-center font-bold text-sm rounded-xl transition-colors duration-300 relative z-10 ${
                             activeTier === 'corporate' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                         }`}
                     >
@@ -113,7 +113,7 @@ function JoinUs() {
                     </button>
                     <button
                         onClick={() => setActiveTier('associate')}
-                        className={`flex-1 py-3 text-center font-bold text-sm rounded-xl transition-colors duration-300 relative z-10 ${
+                        className={`cursor-pointer flex-1 py-3 text-center font-bold text-sm rounded-xl transition-colors duration-300 relative z-10 ${
                             activeTier === 'associate' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                         }`}
                     >
